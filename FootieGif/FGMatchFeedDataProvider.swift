@@ -25,10 +25,7 @@ class FGMatchFeedDataProvider: NSObject {
                     
                     let matches = self.matchesFromDictionaryArray(fixturesArray);
                     
-                    completionHandler(matches)
-                    print(dictionary);
-
-                    
+                    completionHandler(matches)                    
                 } catch {
                     print("error: \(error)")
                 }
@@ -37,12 +34,26 @@ class FGMatchFeedDataProvider: NSObject {
                 
             }
         }
-
-        //executeFetchFeed, populateFGMatches, call completion
     }
     
+    func fetchImageForFeedItem(feedItem: FGMatch, completionHandler: (NSData) -> Void) {
+        
+        let networkRequest = FGNetworkRequest()
+        networkRequest.executeRequest(NSURL.init(string:"http://i.giphy.com/xT0GquVx2okVvSekqk.gif")) { (responseData, response, error) in
+            
+            if (responseData != nil) {
+                
+                completionHandler(responseData!)
+            } else if (error != nil) {
+                
+            }
+        }
+
+    }
     
-    func matchesFromDictionaryArray(array: [[String:AnyObject]]) -> [FGMatch] {
+// private methods
+    
+    private func matchesFromDictionaryArray(array: [[String:AnyObject]]) -> [FGMatch] {
         
         var matches = [FGMatch]()
 

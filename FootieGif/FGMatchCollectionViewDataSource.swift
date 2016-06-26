@@ -27,6 +27,20 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         
         let feedItem = feedItems[indexPath.row] as FGMatch
         cell.textLabel.text = feedItem.caption
+        
+        if (feedItem.gifImageURL != nil) {
+            
+            let networkRequest = FGNetworkRequest()
+            networkRequest.executeRequest(feedItem.gifImageURL!) { (responseData, response, error) in
+                
+                if (responseData != nil) {
+                    
+                    cell.imageView.animateWithImageData(responseData!)
+                } else if (error != nil) {
+                    
+                }
+            }
+        }
 
         return cell
     }
@@ -34,7 +48,5 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     func feedItemAtIndexPath(indexPath: NSIndexPath) -> FGMatch {
         
         return self.feedItems[indexPath.row]
-//        let match = FGMatch()
-//        return match;
     }
 }

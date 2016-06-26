@@ -21,8 +21,12 @@ class FGMatchFeedInteractor: NSObject {
         }
     }
     
-    func updateMatchFeedItem(feedItem: FGMatch) -> Void {
+    func updateMatchFeedItem(feedItem: FGMatch, index: Int) -> Void {
         
-        
+        self.output.updateFeedItem(feedItem, index: index)
+
+//        self.dataProvider.fetchImageForFeedItem(feedItem) { (imageData) in
+//            
+//        }
     }
 }

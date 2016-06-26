@@ -33,5 +33,7 @@ class FGNetworkRequest: NSObject {
             
         });
         task.resume()
+
+
     }
 }

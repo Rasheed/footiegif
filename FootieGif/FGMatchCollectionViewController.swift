@@ -41,7 +41,7 @@ class FGMatchCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
-//        self.output.updateMatchFeedItem(self.dataSource.feedItemAtIndexPath(indexPath))
+        self.output.updateMatchFeedItem(self.dataSource.feedItemAtIndexPath(indexPath), index:indexPath.row)
     }
     
     override func collectionView(collectionView: UICollectionView,moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {

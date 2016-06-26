@@ -17,4 +17,9 @@ class FGMatchFeedPresenter: NSObject {
         self.output.dataSource.feedItems = feedItems
         self.output.collectionView?.reloadData()
     }
+    
+    func updateFeedItem(feedItem: FGMatch, index: Int) -> Void {
+
+        feedItem.gifImageURL = NSURL.init(string:"https://media.giphy.com/media/Lf8hahDExPYm4/giphy.gif")
+    }
 }

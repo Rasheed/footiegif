@@ -33,8 +33,7 @@ class FGMatch: NSObject {
         }
     }
     
-    var gifImageData: NSData?
-    
+    var gifImageURL: NSURL?
     var furtherDetailURL: NSURL = NSURL()
     var homeTeamURL: NSURL = NSURL()
     var awayTeamURL:NSURL = NSURL()
