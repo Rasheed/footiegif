@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1E931FAD1D1EC63B00825447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FAC1D1EC63B00825447 /* AppDelegate.swift */; };
-		1E931FAF1D1EC63B00825447 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FAE1D1EC63B00825447 /* ViewController.swift */; };
-		1E931FB21D1EC63B00825447 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E931FB01D1EC63B00825447 /* Main.storyboard */; };
+		1E931FAF1D1EC63B00825447 /* FGMatchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */; };
 		1E931FB41D1EC63B00825447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E931FB31D1EC63B00825447 /* Assets.xcassets */; };
 		1E931FB71D1EC63B00825447 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E931FB51D1EC63B00825447 /* LaunchScreen.storyboard */; };
 		1E931FC21D1EC63B00825447 /* FootieGifTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FC11D1EC63B00825447 /* FootieGifTests.swift */; };
 		1E931FCD1D1EC63B00825447 /* FootieGifUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FCC1D1EC63B00825447 /* FootieGifUITests.swift */; };
+		1E931FDB1D1EE6C000825447 /* FGMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FDA1D1EE6C000825447 /* FGMatchCell.swift */; };
+		1E931FDD1D1EE7AB00825447 /* FGMatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E931FDC1D1EE7AB00825447 /* FGMatchCell.xib */; };
+		1E93200F1D1F00A400825447 /* FGNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */; };
+		1E93203A1D1F08F400825447 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9320371D1F08D400825447 /* Gifu.framework */; };
+		1E93203B1D1F0FB600825447 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9320371D1F08D400825447 /* Gifu.framework */; };
+		1E93203C1D1F0FB600825447 /* Gifu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9320371D1F08D400825447 /* Gifu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +36,47 @@
 			remoteGlobalIDString = 1E931FA81D1EC63A00825447;
 			remoteInfo = FootieGif;
 		};
+		1E9320361D1F08D400825447 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E9320311D1F08D400825447 /* Gifu.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00B8C73E1A364DA400C188E7;
+			remoteInfo = Gifu;
+		};
+		1E9320381D1F08D400825447 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E9320311D1F08D400825447 /* Gifu.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 009BD1361BBC7F6500FC982B;
+			remoteInfo = GifuTests;
+		};
+		1E93203D1D1F0FB600825447 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E9320311D1F08D400825447 /* Gifu.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 00B8C73D1A364DA400C188E7;
+			remoteInfo = Gifu;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1E93203F1D1F0FB600825447 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1E93203C1D1F0FB600825447 /* Gifu.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E931FA91D1EC63A00825447 /* FootieGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootieGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E931FAC1D1EC63B00825447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1E931FAE1D1EC63B00825447 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1E931FB11D1EC63B00825447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FGMatchCollectionViewController.swift; sourceTree = "<group>"; };
 		1E931FB31D1EC63B00825447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E931FB61D1EC63B00825447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E931FB81D1EC63B00825447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +86,10 @@
 		1E931FC81D1EC63B00825447 /* FootieGifUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootieGifUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E931FCC1D1EC63B00825447 /* FootieGifUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootieGifUITests.swift; sourceTree = "<group>"; };
 		1E931FCE1D1EC63B00825447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E931FDA1D1EE6C000825447 /* FGMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchCell.swift; sourceTree = "<group>"; };
+		1E931FDC1D1EE7AB00825447 /* FGMatchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FGMatchCell.xib; sourceTree = "<group>"; };
+		1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGNetworkRequest.swift; sourceTree = "<group>"; };
+		1E9320311D1F08D400825447 /* Gifu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Gifu.xcodeproj; path = "../../Downloads/Gifu-master/Gifu.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E93203A1D1F08F400825447 /* Gifu.framework in Frameworks */,
+				1E93203B1D1F0FB600825447 /* Gifu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +122,7 @@
 		1E931FA01D1EC63A00825447 = {
 			isa = PBXGroup;
 			children = (
+				1E9320311D1F08D400825447 /* Gifu.xcodeproj */,
 				1E931FAB1D1EC63B00825447 /* FootieGif */,
 				1E931FC01D1EC63B00825447 /* FootieGifTests */,
 				1E931FCB1D1EC63B00825447 /* FootieGifUITests */,
@@ -98,11 +144,13 @@
 			isa = PBXGroup;
 			children = (
 				1E931FAC1D1EC63B00825447 /* AppDelegate.swift */,
-				1E931FAE1D1EC63B00825447 /* ViewController.swift */,
-				1E931FB01D1EC63B00825447 /* Main.storyboard */,
+				1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */,
 				1E931FB31D1EC63B00825447 /* Assets.xcassets */,
 				1E931FB51D1EC63B00825447 /* LaunchScreen.storyboard */,
 				1E931FB81D1EC63B00825447 /* Info.plist */,
+				1E931FDA1D1EE6C000825447 /* FGMatchCell.swift */,
+				1E931FDC1D1EE7AB00825447 /* FGMatchCell.xib */,
+				1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */,
 			);
 			path = FootieGif;
 			sourceTree = "<group>";
@@ -125,6 +173,15 @@
 			path = FootieGifUITests;
 			sourceTree = "<group>";
 		};
+		1E9320321D1F08D400825447 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E9320371D1F08D400825447 /* Gifu.framework */,
+				1E9320391D1F08D400825447 /* GifuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +192,12 @@
 				1E931FA51D1EC63A00825447 /* Sources */,
 				1E931FA61D1EC63A00825447 /* Frameworks */,
 				1E931FA71D1EC63A00825447 /* Resources */,
+				1E93203F1D1F0FB600825447 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1E93203E1D1F0FB600825447 /* PBXTargetDependency */,
 			);
 			name = FootieGif;
 			productName = FootieGif;
@@ -215,6 +274,12 @@
 			mainGroup = 1E931FA01D1EC63A00825447;
 			productRefGroup = 1E931FAA1D1EC63A00825447 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1E9320321D1F08D400825447 /* Products */;
+					ProjectRef = 1E9320311D1F08D400825447 /* Gifu.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1E931FA81D1EC63A00825447 /* FootieGif */,
@@ -224,6 +289,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		1E9320371D1F08D400825447 /* Gifu.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Gifu.framework;
+			remoteRef = 1E9320361D1F08D400825447 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1E9320391D1F08D400825447 /* GifuTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GifuTests.xctest;
+			remoteRef = 1E9320381D1F08D400825447 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		1E931FA71D1EC63A00825447 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -231,7 +313,7 @@
 			files = (
 				1E931FB71D1EC63B00825447 /* LaunchScreen.storyboard in Resources */,
 				1E931FB41D1EC63B00825447 /* Assets.xcassets in Resources */,
-				1E931FB21D1EC63B00825447 /* Main.storyboard in Resources */,
+				1E931FDD1D1EE7AB00825447 /* FGMatchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E931FAF1D1EC63B00825447 /* ViewController.swift in Sources */,
+				1E931FAF1D1EC63B00825447 /* FGMatchCollectionViewController.swift in Sources */,
+				1E931FDB1D1EE6C000825447 /* FGMatchCell.swift in Sources */,
+				1E93200F1D1F00A400825447 /* FGNetworkRequest.swift in Sources */,
 				1E931FAD1D1EC63B00825447 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,17 +374,14 @@
 			target = 1E931FA81D1EC63A00825447 /* FootieGif */;
 			targetProxy = 1E931FC91D1EC63B00825447 /* PBXContainerItemProxy */;
 		};
+		1E93203E1D1F0FB600825447 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Gifu;
+			targetProxy = 1E93203D1D1F0FB600825447 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1E931FB01D1EC63B00825447 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1E931FB11D1EC63B00825447 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1E931FB51D1EC63B00825447 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -399,6 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FootieGif/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fg.FootieGif;
@@ -410,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FootieGif/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fg.FootieGif;
