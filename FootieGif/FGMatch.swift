@@ -33,6 +33,23 @@ class FGMatch: NSObject {
         }
     }
     
+    var homeTeamName: String {
+        
+        get {
+            let homeTeamName = self.dictionary["homeTeamName"] as! String
+            return homeTeamName;
+        }
+    }
+    
+    var awayTeamName: String {
+        
+        get {
+            let awayTeamName = self.dictionary["awayTeamName"] as! String
+            return awayTeamName;
+        }
+    }
+
+    
     var gifImageURL: NSURL?
     var furtherDetailURL: NSURL = NSURL()
     var homeTeamURL: NSURL = NSURL()

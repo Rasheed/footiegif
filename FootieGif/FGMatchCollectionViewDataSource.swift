@@ -28,18 +28,28 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         let feedItem = feedItems[indexPath.row] as FGMatch
         cell.textLabel.text = feedItem.caption
         
-        if (feedItem.gifImageURL != nil) {
+        if let gifURL = feedItem.gifImageURL{
             
+            let originalIndexPath = indexPath;
             let networkRequest = FGNetworkRequest()
-            networkRequest.executeRequest(feedItem.gifImageURL!) { (responseData, response, error) in
+            networkRequest.executeRequest(gifURL) { (responseData, response, error) in
                 
-                if (responseData != nil) {
-                    
-                    cell.imageView.animateWithImageData(responseData!)
-                } else if (error != nil) {
-                    
+                if (indexPath == originalIndexPath) {
+                    if (responseData != nil) {
+                        
+                        dispatch_async(dispatch_get_main_queue(), { 
+                            
+                            cell.imageView.animateWithImageData(responseData!)
+                        })
+                        
+                    } else if (error != nil) {
+                        
+                    }
                 }
             }
+        } else {
+            
+            cell.imageView.image = nil
         }
 
         return cell

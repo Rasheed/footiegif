@@ -12,6 +12,7 @@ class FGMatchFeedInteractor: NSObject {
 
     var output: FGMatchFeedPresenter!
     let dataProvider = FGMatchFeedDataProvider()
+    var updatedIndexes = Set<Int>()
     
     func fetchFeed() -> Void {
         
@@ -23,10 +24,19 @@ class FGMatchFeedInteractor: NSObject {
     
     func updateMatchFeedItem(feedItem: FGMatch, index: Int) -> Void {
         
-        self.output.updateFeedItem(feedItem, index: index)
-
-//        self.dataProvider.fetchImageForFeedItem(feedItem) { (imageData) in
-//            
-//        }
+        if (updatedIndexes.contains(index)) {
+            return;
+        }
+        updatedIndexes.insert(index)
+        let g = Giphy(apiKey: Giphy.PublicBetaAPIKey)
+        
+        g.random("\(feedItem.homeTeamName) football", rating: nil) { gif, err in
+            
+            if (gif != nil) {
+                let gifUrlString = gif!.json["fixed_width_small_url"] as! String
+                let gifURL = NSURL(string: gifUrlString);
+                feedItem.gifImageURL = gifURL
+            }
+        }
     }
 }

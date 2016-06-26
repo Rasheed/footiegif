@@ -19,7 +19,7 @@ class FGMatchCollectionViewController: UICollectionViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 300, height: 200)
+        layout.itemSize = CGSize(width: 250, height: 200)
         self.dataSource = FGMatchCollectionViewDataSource()
         super.init(collectionViewLayout: layout)
     }
@@ -35,7 +35,6 @@ class FGMatchCollectionViewController: UICollectionViewController {
         self.collectionView?.dataSource = self.dataSource;
         self.collectionView?.delegate = self;
         collectionView!.registerNib(UINib(nibName: "FGMatchCell", bundle: nil), forCellWithReuseIdentifier: "FGMatchCell")
-        
         self.output.fetchFeed()
     }
     
