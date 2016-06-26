@@ -19,6 +19,13 @@
 		1E93203A1D1F08F400825447 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9320371D1F08D400825447 /* Gifu.framework */; };
 		1E93203B1D1F0FB600825447 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9320371D1F08D400825447 /* Gifu.framework */; };
 		1E93203C1D1F0FB600825447 /* Gifu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9320371D1F08D400825447 /* Gifu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E9320441D20414000825447 /* FGMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320431D20414000825447 /* FGMatch.swift */; };
+		1E9320481D20446D00825447 /* FGMatchCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320471D20446D00825447 /* FGMatchCollectionViewDataSource.swift */; };
+		1E93204A1D20464F00825447 /* FGMatchFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320491D20464F00825447 /* FGMatchFeedInteractor.swift */; };
+		1E93204C1D204DCF00825447 /* FGMatchFeedDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93204B1D204DCF00825447 /* FGMatchFeedDataProvider.swift */; };
+		1E93204E1D20512100825447 /* FGMatchFeedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93204D1D20512100825447 /* FGMatchFeedConfigurator.swift */; };
+		1E9320501D2051D600825447 /* FGMatchFeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93204F1D2051D600825447 /* FGMatchFeedRouter.swift */; };
+		1E9320521D20523C00825447 /* FGMatchFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +97,13 @@
 		1E931FDC1D1EE7AB00825447 /* FGMatchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FGMatchCell.xib; sourceTree = "<group>"; };
 		1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGNetworkRequest.swift; sourceTree = "<group>"; };
 		1E9320311D1F08D400825447 /* Gifu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Gifu.xcodeproj; path = "../../Downloads/Gifu-master/Gifu.xcodeproj"; sourceTree = "<group>"; };
+		1E9320431D20414000825447 /* FGMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatch.swift; sourceTree = "<group>"; };
+		1E9320471D20446D00825447 /* FGMatchCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		1E9320491D20464F00825447 /* FGMatchFeedInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchFeedInteractor.swift; sourceTree = "<group>"; };
+		1E93204B1D204DCF00825447 /* FGMatchFeedDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchFeedDataProvider.swift; sourceTree = "<group>"; };
+		1E93204D1D20512100825447 /* FGMatchFeedConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchFeedConfigurator.swift; sourceTree = "<group>"; };
+		1E93204F1D2051D600825447 /* FGMatchFeedRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchFeedRouter.swift; sourceTree = "<group>"; };
+		1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchFeedPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,14 +157,12 @@
 		1E931FAB1D1EC63B00825447 /* FootieGif */ = {
 			isa = PBXGroup;
 			children = (
-				1E931FAC1D1EC63B00825447 /* AppDelegate.swift */,
-				1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */,
-				1E931FB31D1EC63B00825447 /* Assets.xcassets */,
-				1E931FB51D1EC63B00825447 /* LaunchScreen.storyboard */,
-				1E931FB81D1EC63B00825447 /* Info.plist */,
-				1E931FDA1D1EE6C000825447 /* FGMatchCell.swift */,
-				1E931FDC1D1EE7AB00825447 /* FGMatchCell.xib */,
+				1E9320451D20441E00825447 /* Supporting Files */,
+				1E9320461D20443900825447 /* UI */,
+				1E9320421D20412800825447 /* Model */,
+				1E9320531D20541900825447 /* Scenes */,
 				1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */,
+				1E93204B1D204DCF00825447 /* FGMatchFeedDataProvider.swift */,
 			);
 			path = FootieGif;
 			sourceTree = "<group>";
@@ -180,6 +192,47 @@
 				1E9320391D1F08D400825447 /* GifuTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1E9320421D20412800825447 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E9320431D20414000825447 /* FGMatch.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1E9320451D20441E00825447 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E931FAC1D1EC63B00825447 /* AppDelegate.swift */,
+				1E931FB31D1EC63B00825447 /* Assets.xcassets */,
+				1E931FB51D1EC63B00825447 /* LaunchScreen.storyboard */,
+				1E931FB81D1EC63B00825447 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E9320461D20443900825447 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1E931FDA1D1EE6C000825447 /* FGMatchCell.swift */,
+				1E931FDC1D1EE7AB00825447 /* FGMatchCell.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		1E9320531D20541900825447 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */,
+				1E9320491D20464F00825447 /* FGMatchFeedInteractor.swift */,
+				1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */,
+				1E9320471D20446D00825447 /* FGMatchCollectionViewDataSource.swift */,
+				1E93204D1D20512100825447 /* FGMatchFeedConfigurator.swift */,
+				1E93204F1D2051D600825447 /* FGMatchFeedRouter.swift */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,9 +392,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E931FAF1D1EC63B00825447 /* FGMatchCollectionViewController.swift in Sources */,
+				1E93204E1D20512100825447 /* FGMatchFeedConfigurator.swift in Sources */,
 				1E931FDB1D1EE6C000825447 /* FGMatchCell.swift in Sources */,
+				1E9320501D2051D600825447 /* FGMatchFeedRouter.swift in Sources */,
 				1E93200F1D1F00A400825447 /* FGNetworkRequest.swift in Sources */,
+				1E93204C1D204DCF00825447 /* FGMatchFeedDataProvider.swift in Sources */,
 				1E931FAD1D1EC63B00825447 /* AppDelegate.swift in Sources */,
+				1E93204A1D20464F00825447 /* FGMatchFeedInteractor.swift in Sources */,
+				1E9320481D20446D00825447 /* FGMatchCollectionViewDataSource.swift in Sources */,
+				1E9320521D20523C00825447 /* FGMatchFeedPresenter.swift in Sources */,
+				1E9320441D20414000825447 /* FGMatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

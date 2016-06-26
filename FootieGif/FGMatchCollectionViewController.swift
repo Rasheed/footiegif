@@ -10,11 +10,17 @@ import UIKit
 
 class FGMatchCollectionViewController: UICollectionViewController {
     
+    var dataSource: FGMatchCollectionViewDataSource
+    var output: FGMatchFeedInteractor!
+    var router: FGMatchFeedRouter!
+
+    
     init() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 300, height: 200)
+        self.dataSource = FGMatchCollectionViewDataSource()
         super.init(collectionViewLayout: layout)
     }
     
@@ -24,45 +30,18 @@ class FGMatchCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FGMatchFeedConfigurator.sharedInstance.configure(self)
         
-        self.collectionView?.dataSource = self;
+        self.collectionView?.dataSource = self.dataSource;
         self.collectionView?.delegate = self;
         collectionView!.registerNib(UINib(nibName: "FGMatchCell", bundle: nil), forCellWithReuseIdentifier: "FGMatchCell")
+        
+        self.output.fetchFeed()
     }
     
-    
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
-    
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FGMatchCell", forIndexPath: indexPath) as! FGMatchCell
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
-        let url = NSURL.init(string: "https://media.giphy.com/media/6HZWMDaqPLdq8/giphy.gif")!
-        let request = NSURLRequest(URL: url)
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config)
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                if (data != nil) {
-                    cell.imageView.prepareForAnimation(imageData: data!)
-                } else if (error != nil) {
-                    //handle error
-                }
-            });
-            
-        });
-        
-        task.resume()
-        
-        return cell
+//        self.output.updateMatchFeedItem(self.dataSource.feedItemAtIndexPath(indexPath))
     }
     
     override func collectionView(collectionView: UICollectionView,moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
@@ -87,9 +66,7 @@ class FGMatchCollectionViewController: UICollectionViewController {
         for visibleCell in visibleCells! {
             
             let matchCell = visibleCell as! FGMatchCell
-            if (matchCell.imageView.isAnimatingGIF) {
-                matchCell.imageView.stopAnimatingGIF()
-            }
+            matchCell.imageView.stopAnimatingGIF()
         }
     }
 }
