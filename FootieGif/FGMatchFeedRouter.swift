@@ -9,16 +9,16 @@
 import UIKit
 
 class FGMatchFeedRouter: NSObject, UIViewControllerTransitioningDelegate {
-
+    
     weak var viewController: FGMatchCollectionViewController!
     let customPresentAnimationController = FGCustomMatchPresenterAnimator()
     let customDismissAnimationController = FGCustomMatchDismissAnimator()
-
+    
     func presentMatchDetail(match: FGMatch) {
         
-       let detailViewController = FGMatchDetailViewController()
+        let detailViewController = FGMatchDetailViewController()
         detailViewController.match = match
-       detailViewController.transitioningDelegate = self
+        detailViewController.transitioningDelegate = self
         self.viewController.presentViewController(detailViewController, animated: true, completion: nil)
     }
     
@@ -29,5 +29,5 @@ class FGMatchFeedRouter: NSObject, UIViewControllerTransitioningDelegate {
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return customDismissAnimationController
     }
-
+    
 }
