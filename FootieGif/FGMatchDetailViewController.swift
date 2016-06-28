@@ -21,6 +21,20 @@ class FGMatchDetailViewController: UIViewController {
         guard let gifImageData = self.match?.gifImageData else { return }
 
         imageView.animateWithImageData(gifImageData)
+        
+        let networkRequest = FGNetworkRequest()
+        networkRequest.executeRequest(match?.gifImageURL) { (responseData, response, error) in
+            
+            if (responseData != nil) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.match!.gifImageData = responseData!
+                    self.imageView.animateWithImageData(responseData!)
+                }
+                
+            }
+            
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
