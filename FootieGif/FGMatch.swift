@@ -48,7 +48,32 @@ class FGMatch: NSObject {
             return awayTeamName;
         }
     }
-
+    
+    var winningTeamName: String {
+        
+        get {
+            
+            let homeTeamName = self.dictionary["homeTeamName"] as! String
+            let awayTeamName = self.dictionary["awayTeamName"] as! String
+            
+            let status = self.dictionary["status"] as! String
+            if (status == "FINISHED") {
+                
+                let result = self.dictionary["result"] as! [String:AnyObject]
+                let goalsHomeTeam = result["goalsHomeTeam"] as! Int
+                let goalsAwayTeam = result["goalsAwayTeam"] as! Int
+                
+                if goalsHomeTeam > goalsAwayTeam {
+                    return homeTeamName
+                } else {
+                    return awayTeamName
+                }
+            }
+            return homeTeamName
+        }
+    }
+    
+    var gifImageData: NSData?
     
     var gifImageURL: NSURL?
     var furtherDetailURL: NSURL = NSURL()

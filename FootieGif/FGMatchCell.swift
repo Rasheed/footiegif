@@ -17,5 +17,10 @@ class FGMatchCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    override func prepareForReuse() {
+        self.textLabel.text = ""
+        self.imageView.prepareForReuse();
+    }
 
 }

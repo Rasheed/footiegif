@@ -11,6 +11,7 @@ import UIKit
 class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     var feedItems = [FGMatch]()
+    var cache = [NSURL:NSData]()
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -27,31 +28,13 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         
         let feedItem = feedItems[indexPath.row] as FGMatch
         cell.textLabel.text = feedItem.caption
+        cell.imageView.image = nil;
         
-        if let gifURL = feedItem.gifImageURL{
+        if let gifImageData = feedItem.gifImageData {
             
-            let originalIndexPath = indexPath;
-            let networkRequest = FGNetworkRequest()
-            networkRequest.executeRequest(gifURL) { (responseData, response, error) in
-                
-                if (indexPath == originalIndexPath) {
-                    if (responseData != nil) {
-                        
-                        dispatch_async(dispatch_get_main_queue(), { 
-                            
-                            cell.imageView.animateWithImageData(responseData!)
-                        })
-                        
-                    } else if (error != nil) {
-                        
-                    }
-                }
-            }
-        } else {
-            
-            cell.imageView.image = nil
+            cell.imageView.prepareForAnimation(imageData: gifImageData)
         }
-
+        
         return cell
     }
     

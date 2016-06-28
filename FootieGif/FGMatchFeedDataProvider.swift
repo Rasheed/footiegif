@@ -10,7 +10,6 @@ import UIKit
 
 class FGMatchFeedDataProvider: NSObject {
 
-    
     func fetchFeed(completionHandler: ([FGMatch]) -> Void) -> Void {
         
         let networkRequest = FGNetworkRequest()
@@ -24,7 +23,7 @@ class FGMatchFeedDataProvider: NSObject {
                     let fixturesArray = dictionary["fixtures"] as! [[String:AnyObject]]
                     
                     let matches = self.matchesFromDictionaryArray(fixturesArray);
-                    
+
                     completionHandler(matches)                    
                 } catch {
                     print("error: \(error)")

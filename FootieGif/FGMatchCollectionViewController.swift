@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FGMatchCollectionViewController: UICollectionViewController {
+class FGMatchCollectionViewController: UICollectionViewController, UIViewControllerPreviewingDelegate {
     
     var dataSource: FGMatchCollectionViewDataSource
     var output: FGMatchFeedInteractor!
@@ -19,7 +19,7 @@ class FGMatchCollectionViewController: UICollectionViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 250, height: 200)
+        layout.itemSize = CGSize(width: 320, height: 200)
         self.dataSource = FGMatchCollectionViewDataSource()
         super.init(collectionViewLayout: layout)
     }
@@ -34,8 +34,15 @@ class FGMatchCollectionViewController: UICollectionViewController {
         
         self.collectionView?.dataSource = self.dataSource;
         self.collectionView?.delegate = self;
-        collectionView!.registerNib(UINib(nibName: "FGMatchCell", bundle: nil), forCellWithReuseIdentifier: "FGMatchCell")
+        self.collectionView!.registerNib(UINib(nibName: "FGMatchCell", bundle: nil), forCellWithReuseIdentifier: "FGMatchCell")
+        self.collectionView?.backgroundColor = UIColor.init(white:248/255.0, alpha: 1.0)
         self.output.fetchFeed()
+        
+        if( traitCollection.forceTouchCapability == .Available){
+            
+            registerForPreviewingWithDelegate(self, sourceView: view)
+            
+        }
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
@@ -45,6 +52,37 @@ class FGMatchCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView,moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         // move your data order
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let match = self.dataSource.feedItemAtIndexPath(indexPath)
+        
+        self.router.presentMatchDetail(match)
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = collectionView?.indexPathForItemAtPoint(location) else { return nil }
+        guard let cell = collectionView?.cellForItemAtIndexPath(indexPath) else { return nil }
+
+        let feedItem = self.dataSource.feedItemAtIndexPath(indexPath)
+        
+        let viewController = FGMatchDetailViewController()
+        
+        viewController.match = feedItem
+        
+        viewController.preferredContentSize = CGSize(width: 320, height: 200)
+
+        previewingContext.sourceRect = cell.frame
+        
+        return viewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        
+        showViewController(viewControllerToCommit, sender: self)
+        
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -67,6 +105,6 @@ class FGMatchCollectionViewController: UICollectionViewController {
             let matchCell = visibleCell as! FGMatchCell
             matchCell.imageView.stopAnimatingGIF()
         }
-    }
+    }    
 }
 

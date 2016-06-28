@@ -27,6 +27,10 @@
 		1E9320501D2051D600825447 /* FGMatchFeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93204F1D2051D600825447 /* FGMatchFeedRouter.swift */; };
 		1E9320521D20523C00825447 /* FGMatchFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */; };
 		1E9320561D20946000825447 /* Giphy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320551D20946000825447 /* Giphy.swift */; };
+		1E93205B1D21DAC600825447 /* FGMatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320591D21DAC600825447 /* FGMatchDetailViewController.swift */; };
+		1E93205C1D21DAC600825447 /* FGMatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E93205A1D21DAC600825447 /* FGMatchDetailViewController.xib */; };
+		1E9320601D21E8CF00825447 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E93205E1D21E8CF00825447 /* Model.xcdatamodeld */; };
+		1E9320631D21E9E500825447 /* FGDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320621D21E9E500825447 /* FGDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,10 @@
 		1E93204F1D2051D600825447 /* FGMatchFeedRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchFeedRouter.swift; sourceTree = "<group>"; };
 		1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchFeedPresenter.swift; sourceTree = "<group>"; };
 		1E9320551D20946000825447 /* Giphy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Giphy.swift; sourceTree = "<group>"; };
+		1E9320591D21DAC600825447 /* FGMatchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchDetailViewController.swift; sourceTree = "<group>"; };
+		1E93205A1D21DAC600825447 /* FGMatchDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FGMatchDetailViewController.xib; sourceTree = "<group>"; };
+		1E93205F1D21E8CF00825447 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1E9320621D21E9E500825447 /* FGDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,11 +169,14 @@
 			children = (
 				1E9320541D20943400825447 /* Third Party */,
 				1E9320451D20441E00825447 /* Supporting Files */,
+				1E9320611D21E9CB00825447 /* Data */,
 				1E9320461D20443900825447 /* UI */,
 				1E9320421D20412800825447 /* Model */,
 				1E9320531D20541900825447 /* Scenes */,
 				1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */,
 				1E93204B1D204DCF00825447 /* FGMatchFeedDataProvider.swift */,
+				1E9320591D21DAC600825447 /* FGMatchDetailViewController.swift */,
+				1E93205A1D21DAC600825447 /* FGMatchDetailViewController.xib */,
 			);
 			path = FootieGif;
 			sourceTree = "<group>";
@@ -208,6 +219,7 @@
 		1E9320451D20441E00825447 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E93205E1D21E8CF00825447 /* Model.xcdatamodeld */,
 				1E931FAC1D1EC63B00825447 /* AppDelegate.swift */,
 				1E931FB31D1EC63B00825447 /* Assets.xcassets */,
 				1E931FB51D1EC63B00825447 /* LaunchScreen.storyboard */,
@@ -228,12 +240,7 @@
 		1E9320531D20541900825447 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */,
-				1E9320491D20464F00825447 /* FGMatchFeedInteractor.swift */,
-				1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */,
-				1E9320471D20446D00825447 /* FGMatchCollectionViewDataSource.swift */,
-				1E93204D1D20512100825447 /* FGMatchFeedConfigurator.swift */,
-				1E93204F1D2051D600825447 /* FGMatchFeedRouter.swift */,
+				1E93205D1D21E40700825447 /* Feed */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -244,6 +251,27 @@
 				1E9320551D20946000825447 /* Giphy.swift */,
 			);
 			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		1E93205D1D21E40700825447 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */,
+				1E9320491D20464F00825447 /* FGMatchFeedInteractor.swift */,
+				1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */,
+				1E9320471D20446D00825447 /* FGMatchCollectionViewDataSource.swift */,
+				1E93204D1D20512100825447 /* FGMatchFeedConfigurator.swift */,
+				1E93204F1D2051D600825447 /* FGMatchFeedRouter.swift */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		1E9320611D21E9CB00825447 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1E9320621D21E9E500825447 /* FGDataStore.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E93205C1D21DAC600825447 /* FGMatchDetailViewController.xib in Resources */,
 				1E931FB71D1EC63B00825447 /* LaunchScreen.storyboard in Resources */,
 				1E931FB41D1EC63B00825447 /* Assets.xcassets in Resources */,
 				1E931FDD1D1EE7AB00825447 /* FGMatchCell.xib in Resources */,
@@ -405,9 +434,12 @@
 				1E931FAF1D1EC63B00825447 /* FGMatchCollectionViewController.swift in Sources */,
 				1E93204E1D20512100825447 /* FGMatchFeedConfigurator.swift in Sources */,
 				1E931FDB1D1EE6C000825447 /* FGMatchCell.swift in Sources */,
+				1E9320601D21E8CF00825447 /* Model.xcdatamodeld in Sources */,
 				1E9320561D20946000825447 /* Giphy.swift in Sources */,
 				1E9320501D2051D600825447 /* FGMatchFeedRouter.swift in Sources */,
+				1E93205B1D21DAC600825447 /* FGMatchDetailViewController.swift in Sources */,
 				1E93200F1D1F00A400825447 /* FGNetworkRequest.swift in Sources */,
+				1E9320631D21E9E500825447 /* FGDataStore.swift in Sources */,
 				1E93204C1D204DCF00825447 /* FGMatchFeedDataProvider.swift in Sources */,
 				1E931FAD1D1EC63B00825447 /* AppDelegate.swift in Sources */,
 				1E93204A1D20464F00825447 /* FGMatchFeedInteractor.swift in Sources */,
@@ -637,6 +669,7 @@
 				1E931FD31D1EC63B00825447 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E931FD41D1EC63B00825447 /* Build configuration list for PBXNativeTarget "FootieGifTests" */ = {
 			isa = XCConfigurationList;
@@ -645,6 +678,7 @@
 				1E931FD61D1EC63B00825447 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E931FD71D1EC63B00825447 /* Build configuration list for PBXNativeTarget "FootieGifUITests" */ = {
 			isa = XCConfigurationList;
@@ -653,8 +687,22 @@
 				1E931FD91D1EC63B00825447 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1E93205E1D21E8CF00825447 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1E93205F1D21E8CF00825447 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1E93205F1D21E8CF00825447 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1E931FA11D1EC63A00825447 /* Project object */;
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class FGMatchFeedInteractor: NSObject {
-
+    
     var output: FGMatchFeedPresenter!
     let dataProvider = FGMatchFeedDataProvider()
     var updatedIndexes = Set<Int>()
@@ -28,15 +28,34 @@ class FGMatchFeedInteractor: NSObject {
             return;
         }
         updatedIndexes.insert(index)
-        let g = Giphy(apiKey: Giphy.PublicBetaAPIKey)
-        
-        g.random("\(feedItem.homeTeamName) football", rating: nil) { gif, err in
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
             
-            if (gif != nil) {
-                let gifUrlString = gif!.json["fixed_width_small_url"] as! String
-                let gifURL = NSURL(string: gifUrlString);
-                feedItem.gifImageURL = gifURL
+            let g = Giphy(apiKey: Giphy.PublicBetaAPIKey)
+            
+            g.random("\(feedItem.winningTeamName) soccer", rating: nil) { gif, err in
+                //fixed_width_downsampled_url
+                if (gif != nil) {
+                    let gifUrlString = gif!.json["fixed_width_downsampled_url"] as! String
+                    let gifURL = NSURL(string: gifUrlString);
+                    feedItem.gifImageURL = gifURL
+                    
+                    let networkRequest = FGNetworkRequest()
+                    networkRequest.executeRequest(gifURL) { (responseData, response, error) in
+                        
+                        if (responseData != nil) {
+                            dispatch_async(dispatch_get_main_queue()) {
+                                feedItem.gifImageData = responseData!
+                                self.output.updateFeedItem(feedItem, index: index)
+                            }
+                            
+                        }
+                        
+                    }
+                }
+                
             }
+            
         }
     }
 }
