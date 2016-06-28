@@ -31,6 +31,8 @@
 		1E93205C1D21DAC600825447 /* FGMatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E93205A1D21DAC600825447 /* FGMatchDetailViewController.xib */; };
 		1E9320601D21E8CF00825447 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E93205E1D21E8CF00825447 /* Model.xcdatamodeld */; };
 		1E9320631D21E9E500825447 /* FGDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320621D21E9E500825447 /* FGDataStore.swift */; };
+		1E9320661D232EC700825447 /* FGCustomMatchPresenterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */; };
+		1E9320691D232F1800825447 /* FGCustomMatchDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		1E93205A1D21DAC600825447 /* FGMatchDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FGMatchDetailViewController.xib; sourceTree = "<group>"; };
 		1E93205F1D21E8CF00825447 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1E9320621D21E9E500825447 /* FGDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGDataStore.swift; sourceTree = "<group>"; };
+		1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCustomMatchPresenterAnimator.swift; sourceTree = "<group>"; };
+		1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCustomMatchDismissAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				1E93205D1D21E40700825447 /* Feed */,
+				1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */,
+				1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -437,7 +443,9 @@
 				1E9320601D21E8CF00825447 /* Model.xcdatamodeld in Sources */,
 				1E9320561D20946000825447 /* Giphy.swift in Sources */,
 				1E9320501D2051D600825447 /* FGMatchFeedRouter.swift in Sources */,
+				1E9320691D232F1800825447 /* FGCustomMatchDismissAnimator.swift in Sources */,
 				1E93205B1D21DAC600825447 /* FGMatchDetailViewController.swift in Sources */,
+				1E9320661D232EC700825447 /* FGCustomMatchPresenterAnimator.swift in Sources */,
 				1E93200F1D1F00A400825447 /* FGNetworkRequest.swift in Sources */,
 				1E9320631D21E9E500825447 /* FGDataStore.swift in Sources */,
 				1E93204C1D204DCF00825447 /* FGMatchFeedDataProvider.swift in Sources */,
