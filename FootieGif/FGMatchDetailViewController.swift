@@ -14,13 +14,15 @@ class FGMatchDetailViewController: UIViewController {
     var match: FGMatch?
     
     @IBOutlet var imageView: AnimatableImageView!
+    @IBOutlet var backgroundImageView: AnimatableImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let gifImageData = self.match?.gifImageData else { return }
 
-        imageView.animateWithImageData(gifImageData)
+        self.imageView.animateWithImageData(gifImageData)
+        self.backgroundImageView.image = UIImage(data: gifImageData)
         
         let networkRequest = FGNetworkRequest()
         networkRequest.executeRequest(match?.gifImageURL) { (responseData, response, error) in
@@ -32,15 +34,7 @@ class FGMatchDetailViewController: UIViewController {
                 }
                 
             }
-            
         }
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    
     }
     
     @IBAction func didClickBackButton(sender: AnyObject) {
@@ -50,11 +44,11 @@ class FGMatchDetailViewController: UIViewController {
     
     override func previewActionItems() -> [UIPreviewActionItem] {
         
-        let likeAction = UIPreviewAction(title: "Like", style: .Default) { (action, viewController) -> Void in
+        let likeAction = UIPreviewAction(title: "Share", style: .Default) { (action, viewController) -> Void in
             print("You liked the photo")
         }
         
-        let deleteAction = UIPreviewAction(title: "Delete", style: .Destructive) { (action, viewController) -> Void in
+        let deleteAction = UIPreviewAction(title: "Save", style: .Destructive) { (action, viewController) -> Void in
             print("You deleted the photo")
         }
         

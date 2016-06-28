@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FGMatchDetailViewController" customModule="FootieGif" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImageView" destination="dpm-Tb-1mE" id="l7V-Ja-Tc5"/>
                 <outlet property="imageView" destination="E3q-A6-xpZ" id="WuJ-MM-5V0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,15 +17,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euZ-St-QFN">
-                    <rect key="frame" x="8" y="8" width="34" height="30"/>
-                    <state key="normal" title="Back"/>
-                    <connections>
-                        <action selector="didClickBackButton:" destination="-1" eventType="touchUpInside" id="9cQ-Dp-l8j"/>
-                    </connections>
-                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpm-Tb-1mE">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gal-MR-8em">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="K1s-Ba-BiK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E3q-A6-xpZ" customClass="AnimatableImageView" customModule="Gifu">
-                    <rect key="frame" x="140" y="0.0" width="320" height="200"/>
+                    <rect key="frame" x="140" y="200" width="320" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="2Uu-C6-hyz"/>
                         <constraint firstAttribute="width" constant="320" id="aoO-Ip-6MF"/>
@@ -33,10 +38,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="euZ-St-QFN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="6Gs-P2-Y0T"/>
-                <constraint firstItem="euZ-St-QFN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="M0P-jf-SHJ"/>
-                <constraint firstItem="E3q-A6-xpZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="l45-ln-3Ab"/>
+                <constraint firstItem="gal-MR-8em" firstAttribute="bottom" secondItem="dpm-Tb-1mE" secondAttribute="bottom" id="Ej9-mh-0YE"/>
+                <constraint firstAttribute="trailing" secondItem="dpm-Tb-1mE" secondAttribute="trailing" id="Kkb-E4-7Ca"/>
+                <constraint firstAttribute="bottom" secondItem="dpm-Tb-1mE" secondAttribute="bottom" id="a2r-og-69Y"/>
+                <constraint firstItem="gal-MR-8em" firstAttribute="leading" secondItem="dpm-Tb-1mE" secondAttribute="leading" id="e4b-LK-wBH"/>
+                <constraint firstItem="dpm-Tb-1mE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gsF-lS-COM"/>
+                <constraint firstItem="gal-MR-8em" firstAttribute="trailing" secondItem="dpm-Tb-1mE" secondAttribute="trailing" id="hzQ-uC-rp7"/>
+                <constraint firstItem="E3q-A6-xpZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="l0d-p8-5Fq"/>
+                <constraint firstItem="gal-MR-8em" firstAttribute="top" secondItem="dpm-Tb-1mE" secondAttribute="top" id="n02-23-xJr"/>
                 <constraint firstItem="E3q-A6-xpZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vai-8y-tgO"/>
+                <constraint firstItem="dpm-Tb-1mE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ySR-2T-4LT"/>
             </constraints>
         </view>
     </objects>

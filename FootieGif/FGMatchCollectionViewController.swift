@@ -71,9 +71,8 @@ class FGMatchCollectionViewController: UICollectionViewController, UIViewControl
         let viewController = FGMatchDetailViewController()
         
         viewController.match = feedItem
-        
         viewController.preferredContentSize = CGSize(width: 320, height: 200)
-
+        
         previewingContext.sourceRect = cell.frame
         
         return viewController
