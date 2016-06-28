@@ -40,7 +40,7 @@ class FGMatchCollectionViewController: UICollectionViewController, UIViewControl
         
         if( traitCollection.forceTouchCapability == .Available){
             
-            registerForPreviewingWithDelegate(self, sourceView: view)
+            registerForPreviewingWithDelegate(self, sourceView: self.collectionView!)
             
         }
     }

@@ -33,4 +33,19 @@ class FGMatchDetailViewController: UIViewController {
    
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        
+        let likeAction = UIPreviewAction(title: "Like", style: .Default) { (action, viewController) -> Void in
+            print("You liked the photo")
+        }
+        
+        let deleteAction = UIPreviewAction(title: "Delete", style: .Destructive) { (action, viewController) -> Void in
+            print("You deleted the photo")
+        }
+        
+        return [likeAction, deleteAction]
+        
+    }
+
 }

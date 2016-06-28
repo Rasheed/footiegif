@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="441" height="202"/>
                     </imageView>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="up2-n8-r1c">
-                        <rect key="frame" x="0.0" y="162" width="441" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="441" height="202"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oEJ-WR-0Fm">
-                            <rect key="frame" x="0.0" y="0.0" width="441" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="441" height="202"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e27-mm-273">
-                                    <rect key="frame" x="179" y="0.0" width="83" height="40"/>
+                                    <rect key="frame" x="179" y="81" width="83" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="uIK-mL-KFa"/>
                                     </constraints>
@@ -36,7 +36,6 @@
                             <constraints>
                                 <constraint firstItem="e27-mm-273" firstAttribute="centerX" secondItem="oEJ-WR-0Fm" secondAttribute="centerX" id="Gt1-KK-F8B"/>
                                 <constraint firstItem="e27-mm-273" firstAttribute="centerY" secondItem="oEJ-WR-0Fm" secondAttribute="centerY" id="qgs-O7-3Qm"/>
-                                <constraint firstItem="e27-mm-273" firstAttribute="top" secondItem="oEJ-WR-0Fm" secondAttribute="top" id="ypq-Cc-brc"/>
                             </constraints>
                         </view>
                         <blurEffect style="light"/>
@@ -45,6 +44,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="up2-n8-r1c" firstAttribute="top" secondItem="yU1-8t-oT4" secondAttribute="top" id="5Cf-7p-MbS"/>
                 <constraint firstItem="yU1-8t-oT4" firstAttribute="top" secondItem="Zwm-QA-TRe" secondAttribute="top" id="Lph-Eq-wbT"/>
                 <constraint firstAttribute="trailing" secondItem="yU1-8t-oT4" secondAttribute="trailing" id="NiN-7q-w8h"/>
                 <constraint firstItem="up2-n8-r1c" firstAttribute="bottom" secondItem="yU1-8t-oT4" secondAttribute="bottom" id="Y7H-LJ-yYb"/>
