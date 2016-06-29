@@ -16,36 +16,39 @@ class FGMatchDetailViewController: UIViewController {
     @IBOutlet var imageView: AnimatableImageView!
     @IBOutlet var backgroundImageView: AnimatableImageView!
     
+    var output: FGMatchDetailInteractor!
+    var router: FGMatchDetailRouter!
+    
     var animator: UIDynamicAnimator!
     var attachmentBehavior : UIAttachmentBehavior!
     var snapBehavior : UISnapBehavior!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FGMatchDetailConfigurator.sharedInstance.configure(self)
         
         self.animator = UIDynamicAnimator(referenceView: view)
         
         guard let gifImageData = self.match?.gifImageData else { return }
+        
+        let gif = FGGif()
+        gif.previewGifURL = self.match?.previewGifUrl
+        gif.gifURL = self.match?.gifImageURL
+        
+        self.output.setCurrentGif(gif)
 
         self.imageView.animateWithImageData(gifImageData)
+        self.imageView.layer.shadowColor = UIColor.blackColor().CGColor;
+        self.imageView.layer.shadowOffset = CGSizeMake(0, 5);
+        self.imageView.layer.shadowOpacity = 0.3;
+        self.imageView.layer.shadowRadius = 10.0;
+
         self.backgroundImageView.image = UIImage(data: gifImageData)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(FGMatchDetailViewController.panImageView(_:)))
         panGestureRecognizer.minimumNumberOfTouches = 1
         self.imageView.userInteractionEnabled = true
         self.imageView.addGestureRecognizer(panGestureRecognizer)
-        
-        let networkRequest = FGNetworkRequest()
-        networkRequest.executeRequest(match?.gifImageURL) { (responseData, response, error) in
-            
-            if (responseData != nil) {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.match!.gifImageData = responseData!
-                    self.imageView.animateWithImageData(responseData!)
-                }
-                
-            }
-        }
     }
     
     func panImageView(sender: UIPanGestureRecognizer) {
@@ -63,25 +66,57 @@ class FGMatchDetailViewController: UIViewController {
         }
         else if sender.state == UIGestureRecognizerState.Changed {
             attachmentBehavior.anchorPoint = panLocationInView
+            
+            if sender.translationInView(view).y > 50.0 {
+
+                let alpha = 1.0 - sender.translationInView(view).y / 400.0;
+                self.imageView.alpha = alpha;
+            } else {
+                
+                self.imageView.alpha = 1.0;
+            }
         }
         else if sender.state == UIGestureRecognizerState.Ended {
             animator.removeAllBehaviors()
             
             snapBehavior = UISnapBehavior(item: self.imageView, snapToPoint: view.center)
             animator.addBehavior(snapBehavior)
+            self.imageView.alpha = 1.0;
             
-            if sender.translationInView(view).y > 100 {
+            if sender.translationInView(view).y > 350 {
 
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
-            if sender.translationInView(view).x > 100 || sender.translationInView(view).x < -100{
+                self.removeImageView()
+            } else if sender.translationInView(view).x > 100 {
                 
-                print("Load next image")
+                self.output.nextGif("\(self.match?.winningTeamName) football")
+            } else if sender.translationInView(view).x < -100 {
+                
+                self.output.previousGif()
             }
-
         }
     }
+    
+    func removeImageView() -> Void {
         
+        animator.removeAllBehaviors()
+        
+        let gravityBehaviour: UIGravityBehavior = UIGravityBehavior(items: [self.imageView])
+        gravityBehaviour.gravityDirection = CGVectorMake(0.0, 10.0);
+        animator.addBehavior(gravityBehaviour)
+        
+        let itemBehaviour: UIDynamicItemBehavior = UIDynamicItemBehavior(items: [self.imageView])
+        itemBehaviour.addAngularVelocity(CGFloat(-M_PI_2), forItem: self.imageView)
+        animator.addBehavior(itemBehaviour)
+        
+        UIView.animateWithDuration(0.4, animations: {
+            self.self.imageView.alpha = 0.0
+            }, completion: {
+                (value: Bool) in
+//                self.imageView.removeFromSuperview()
+                self.dismissViewControllerAnimated(true, completion: nil)
+        })
+    }
+    
     override func previewActionItems() -> [UIPreviewActionItem] {
         
         let likeAction = UIPreviewAction(title: "Share", style: .Default) { (action, viewController) -> Void in

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E6C13EF1D24880700E3359E /* FGMatchDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C13EE1D24880700E3359E /* FGMatchDetailInteractor.swift */; };
+		1E6C13F11D24885100E3359E /* FGMatchDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C13F01D24885100E3359E /* FGMatchDetailRouter.swift */; };
+		1E6C13F31D24885F00E3359E /* FGMatchDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C13F21D24885F00E3359E /* FGMatchDetailConfigurator.swift */; };
+		1E6C13F51D2488CF00E3359E /* FGMatchDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C13F41D2488CF00E3359E /* FGMatchDetailPresenter.swift */; };
+		1E6C13F71D248A6700E3359E /* FGGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C13F61D248A6700E3359E /* FGGif.swift */; };
 		1E931FAD1D1EC63B00825447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FAC1D1EC63B00825447 /* AppDelegate.swift */; };
 		1E931FAF1D1EC63B00825447 /* FGMatchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */; };
 		1E931FB41D1EC63B00825447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E931FB31D1EC63B00825447 /* Assets.xcassets */; };
@@ -88,6 +93,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E6C13EE1D24880700E3359E /* FGMatchDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchDetailInteractor.swift; sourceTree = "<group>"; };
+		1E6C13F01D24885100E3359E /* FGMatchDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchDetailRouter.swift; sourceTree = "<group>"; };
+		1E6C13F21D24885F00E3359E /* FGMatchDetailConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchDetailConfigurator.swift; sourceTree = "<group>"; };
+		1E6C13F41D2488CF00E3359E /* FGMatchDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGMatchDetailPresenter.swift; sourceTree = "<group>"; };
+		1E6C13F61D248A6700E3359E /* FGGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGGif.swift; sourceTree = "<group>"; };
 		1E931FA91D1EC63A00825447 /* FootieGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootieGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E931FAC1D1EC63B00825447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FGMatchCollectionViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +157,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E6C13EC1D2483F700E3359E /* GifDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1E9320591D21DAC600825447 /* FGMatchDetailViewController.swift */,
+				1E93205A1D21DAC600825447 /* FGMatchDetailViewController.xib */,
+				1E6C13EE1D24880700E3359E /* FGMatchDetailInteractor.swift */,
+				1E6C13F01D24885100E3359E /* FGMatchDetailRouter.swift */,
+				1E6C13F21D24885F00E3359E /* FGMatchDetailConfigurator.swift */,
+				1E6C13F41D2488CF00E3359E /* FGMatchDetailPresenter.swift */,
+			);
+			name = GifDetail;
+			sourceTree = "<group>";
+		};
 		1E931FA01D1EC63A00825447 = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +202,6 @@
 				1E9320531D20541900825447 /* Scenes */,
 				1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */,
 				1E93204B1D204DCF00825447 /* FGMatchFeedDataProvider.swift */,
-				1E9320591D21DAC600825447 /* FGMatchDetailViewController.swift */,
-				1E93205A1D21DAC600825447 /* FGMatchDetailViewController.xib */,
 			);
 			path = FootieGif;
 			sourceTree = "<group>";
@@ -216,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				1E9320431D20414000825447 /* FGMatch.swift */,
+				1E6C13F61D248A6700E3359E /* FGGif.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -244,6 +266,7 @@
 		1E9320531D20541900825447 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1E6C13EC1D2483F700E3359E /* GifDetail */,
 				1E93205D1D21E40700825447 /* Feed */,
 				1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */,
 				1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */,
@@ -442,7 +465,9 @@
 				1E931FDB1D1EE6C000825447 /* FGMatchCell.swift in Sources */,
 				1E9320601D21E8CF00825447 /* Model.xcdatamodeld in Sources */,
 				1E9320561D20946000825447 /* Giphy.swift in Sources */,
+				1E6C13F11D24885100E3359E /* FGMatchDetailRouter.swift in Sources */,
 				1E9320501D2051D600825447 /* FGMatchFeedRouter.swift in Sources */,
+				1E6C13F51D2488CF00E3359E /* FGMatchDetailPresenter.swift in Sources */,
 				1E9320691D232F1800825447 /* FGCustomMatchDismissAnimator.swift in Sources */,
 				1E93205B1D21DAC600825447 /* FGMatchDetailViewController.swift in Sources */,
 				1E9320661D232EC700825447 /* FGCustomMatchPresenterAnimator.swift in Sources */,
@@ -450,10 +475,13 @@
 				1E9320631D21E9E500825447 /* FGDataStore.swift in Sources */,
 				1E93204C1D204DCF00825447 /* FGMatchFeedDataProvider.swift in Sources */,
 				1E931FAD1D1EC63B00825447 /* AppDelegate.swift in Sources */,
+				1E6C13F31D24885F00E3359E /* FGMatchDetailConfigurator.swift in Sources */,
 				1E93204A1D20464F00825447 /* FGMatchFeedInteractor.swift in Sources */,
+				1E6C13EF1D24880700E3359E /* FGMatchDetailInteractor.swift in Sources */,
 				1E9320481D20446D00825447 /* FGMatchCollectionViewDataSource.swift in Sources */,
 				1E9320521D20523C00825447 /* FGMatchFeedPresenter.swift in Sources */,
 				1E9320441D20414000825447 /* FGMatch.swift in Sources */,
+				1E6C13F71D248A6700E3359E /* FGGif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
