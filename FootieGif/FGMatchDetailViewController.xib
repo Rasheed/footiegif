@@ -25,18 +25,6 @@
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="K1s-Ba-BiK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-MD-3W0">
-                                <rect key="frame" x="277" y="139" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="didClickBackButton:" destination="-1" eventType="touchUpInside" id="05S-fc-6sp"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="mBx-MD-3W0" firstAttribute="centerX" secondItem="K1s-Ba-BiK" secondAttribute="centerX" id="Kf8-l7-VbE"/>
-                        </constraints>
                     </view>
                     <blurEffect style="light"/>
                 </visualEffectView>
@@ -57,7 +45,6 @@
                 <constraint firstItem="dpm-Tb-1mE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gsF-lS-COM"/>
                 <constraint firstItem="gal-MR-8em" firstAttribute="trailing" secondItem="dpm-Tb-1mE" secondAttribute="trailing" id="hzQ-uC-rp7"/>
                 <constraint firstItem="E3q-A6-xpZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="l0d-p8-5Fq"/>
-                <constraint firstItem="E3q-A6-xpZ" firstAttribute="top" secondItem="mBx-MD-3W0" secondAttribute="bottom" constant="31" id="ma3-w4-nI1"/>
                 <constraint firstItem="gal-MR-8em" firstAttribute="top" secondItem="dpm-Tb-1mE" secondAttribute="top" id="n02-23-xJr"/>
                 <constraint firstItem="E3q-A6-xpZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vai-8y-tgO"/>
                 <constraint firstItem="dpm-Tb-1mE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ySR-2T-4LT"/>

@@ -52,12 +52,9 @@ class FGMatchFeedInteractor: NSObject {
                         feedItem.gifImageData = responseData!
                         self.output.updateFeedItem(feedItem, index: index)
                     }
-                    
                 }
-                
             }
         }
-
     }
     
     private func updateGifUrl(feedItem: FGMatch, index: Int) {
@@ -84,6 +81,6 @@ class FGMatchFeedInteractor: NSObject {
                 
             }
         }
-
+        
     }
 }

@@ -28,11 +28,13 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         
         let feedItem = feedItems[indexPath.row] as FGMatch
         cell.textLabel.text = feedItem.caption
+        cell.textLabel.textColor = UIColor.darkGrayColor()
         cell.imageView.image = nil;
         
         if let gifImageData = feedItem.gifImageData {
             
             cell.imageView.prepareForAnimation(imageData: gifImageData)
+            cell.textLabel.textColor = UIColor.whiteColor()
         }
         
         return cell
