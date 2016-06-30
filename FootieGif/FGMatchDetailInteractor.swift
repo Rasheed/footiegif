@@ -79,6 +79,12 @@ class FGMatchDetailInteractor: NSObject {
         self.setCurrentGif(self.gifArray[previousGifIndex])
     }
     
+    func shareCurrentGif() {
+        
+        let shareItems:Array = [self.currentGif.gifURL]
+        self.output.presentShareActivity(shareItems)
+    }
+    
     private func fetchGifData(gif: FGGif) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {

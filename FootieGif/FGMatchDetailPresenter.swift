@@ -23,4 +23,12 @@ class FGMatchDetailPresenter: NSObject {
             self.output.backgroundImageView.image = UIImage(data: imageData!);
         },completion: nil)
     }
+    
+    func presentShareActivity(shareItems: [AnyObject]) {
+        
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+
+        self.output.presentViewController(activityViewController, animated: true, completion: nil)
+    }
 }

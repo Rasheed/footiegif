@@ -87,9 +87,14 @@ class FGMatchDetailViewController: UIViewController {
             animator.addBehavior(snapBehavior)
             self.imageView.alpha = 1.0;
             
-            if sender.translationInView(view).y > 350 {
+            if sender.translationInView(view).y < -200 {
+                
+                self.output.shareCurrentGif()
+                
+            } else if sender.translationInView(view).y > 350 {
 
                 self.removeImageView()
+                
             } else if sender.translationInView(view).x > 100 {
                 
                 self.output.nextGif((self.match?.winningTeamName)! + " football")
