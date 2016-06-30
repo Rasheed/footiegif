@@ -23,9 +23,13 @@ class FGMatchFeedPresenter: NSObject {
 
         dispatch_async(dispatch_get_main_queue()) {
             
-            self.output.collectionView?.numberOfItemsInSection(0)
-            self.output.collectionView?.numberOfItemsInSection(1)
-            self.output.collectionView?.reloadItemsAtIndexPaths([indexPath]);
+//            self.output.collectionView?.numberOfItemsInSection(0)
+//            if ((self.output.collectionView?.dataSource!.numberOfSectionsInCollectionView!(self.output.collectionView!))! == 2) {
+//                self.output.collectionView?.numberOfItemsInSection(1)
+//            }
+//            self.output.collectionView?.reloadItemsAtIndexPaths([indexPath]);
+            
+            self.output.collectionView?.reloadData()
         }
         
     }
