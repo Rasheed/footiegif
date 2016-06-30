@@ -13,11 +13,13 @@ class FGMatchDetailViewController: UIViewController {
 
     var match: FGMatch?
     
+    @IBOutlet var textLabel: UILabel!
     @IBOutlet var imageView: AnimatableImageView!
     @IBOutlet var backgroundImageView: AnimatableImageView!
     
     var output: FGMatchDetailInteractor!
     var router: FGMatchDetailRouter!
+    private var configurator = FGMatchDetailConfigurator()
     
     var animator: UIDynamicAnimator!
     var attachmentBehavior : UIAttachmentBehavior!
@@ -25,7 +27,9 @@ class FGMatchDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FGMatchDetailConfigurator.sharedInstance.configure(self)
+        self.configurator.configure(self)
+
+        self.textLabel.text =  (self.match?.winningTeamName)! + " Gifs"
         
         self.animator = UIDynamicAnimator(referenceView: view)
         
@@ -50,7 +54,7 @@ class FGMatchDetailViewController: UIViewController {
         self.imageView.userInteractionEnabled = true
         self.imageView.addGestureRecognizer(panGestureRecognizer)
     }
-    
+        
     func panImageView(sender: UIPanGestureRecognizer) {
         
         let panLocationInView = sender.locationInView(view)
@@ -88,7 +92,7 @@ class FGMatchDetailViewController: UIViewController {
                 self.removeImageView()
             } else if sender.translationInView(view).x > 100 {
                 
-                self.output.nextGif("\(self.match?.winningTeamName) football")
+                self.output.nextGif((self.match?.winningTeamName)! + " football")
             } else if sender.translationInView(view).x < -100 {
                 
                 self.output.previousGif()

@@ -9,20 +9,6 @@
 import UIKit
 
 class FGMatchDetailConfigurator: NSObject {
-
-    class var sharedInstance: FGMatchDetailConfigurator
-    {
-        struct Static {
-            static var instance: FGMatchDetailConfigurator?
-            static var token: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.token) {
-            Static.instance = FGMatchDetailConfigurator()
-        }
-        
-        return Static.instance!
-    }
     
     func configure(viewController: FGMatchDetailViewController)
     {

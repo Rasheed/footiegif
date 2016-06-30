@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="backgroundImageView" destination="dpm-Tb-1mE" id="l7V-Ja-Tc5"/>
                 <outlet property="imageView" destination="E3q-A6-xpZ" id="WuJ-MM-5V0"/>
+                <outlet property="textLabel" destination="0YN-th-0NM" id="St9-bg-U4G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,8 +26,19 @@
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="K1s-Ba-BiK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0YN-th-0NM">
+                                <rect key="frame" x="273" y="112.5" width="54" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0YN-th-0NM" firstAttribute="centerX" secondItem="K1s-Ba-BiK" secondAttribute="centerX" id="vKI-iL-WTw"/>
+                        </constraints>
                     </view>
-                    <blurEffect style="light"/>
+                    <blurEffect style="dark"/>
                 </visualEffectView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E3q-A6-xpZ" customClass="AnimatableImageView" customModule="Gifu">
                     <rect key="frame" x="140" y="200" width="320" height="200"/>
@@ -46,6 +58,7 @@
                 <constraint firstItem="gal-MR-8em" firstAttribute="trailing" secondItem="dpm-Tb-1mE" secondAttribute="trailing" id="hzQ-uC-rp7"/>
                 <constraint firstItem="E3q-A6-xpZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="l0d-p8-5Fq"/>
                 <constraint firstItem="gal-MR-8em" firstAttribute="top" secondItem="dpm-Tb-1mE" secondAttribute="top" id="n02-23-xJr"/>
+                <constraint firstItem="E3q-A6-xpZ" firstAttribute="top" secondItem="0YN-th-0NM" secondAttribute="bottom" constant="61" id="pUq-zI-gXx"/>
                 <constraint firstItem="E3q-A6-xpZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vai-8y-tgO"/>
                 <constraint firstItem="dpm-Tb-1mE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ySR-2T-4LT"/>
             </constraints>
