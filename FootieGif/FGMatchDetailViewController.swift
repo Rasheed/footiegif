@@ -16,7 +16,7 @@ class FGMatchDetailViewController: UIViewController {
     @IBOutlet var actionTextLabel: UILabel!
     @IBOutlet var textLabel: UILabel!
     @IBOutlet private var imageView: AnimatableImageView!
-    @IBOutlet private var backgroundImageView: AnimatableImageView!
+    @IBOutlet private var backgroundImageView: UIImageView!
     
     var output: FGMatchDetailInteractor!
     var router: FGMatchDetailRouter!
@@ -27,14 +27,15 @@ class FGMatchDetailViewController: UIViewController {
     var snapBehavior : UISnapBehavior!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.configurator.configure(self)
         self.output.match = match
-
+        
         self.actionTextLabel.alpha = 0.0
         self.textLabel.text =  (self.match?.winningTeamName)! + " Gifs"
         
-        self.animator = UIDynamicAnimator(referenceView: view)
+        self.animator = UIDynamicAnimator(referenceView: self.view)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(FGMatchDetailViewController.panImageView(_:)))
         panGestureRecognizer.minimumNumberOfTouches = 1
@@ -49,13 +50,9 @@ class FGMatchDetailViewController: UIViewController {
         
         self.output.setCurrentGif(gif)
         
-        self.imageView.animateWithImageData(gifImageData)
-        self.imageView.layer.shadowColor = UIColor.blackColor().CGColor;
-        self.imageView.layer.shadowOffset = CGSizeMake(0, 5);
-        self.imageView.layer.shadowOpacity = 0.3;
-        self.imageView.layer.shadowRadius = 10.0;
-        
-        self.backgroundImageView.image = UIImage(data: gifImageData)
+        guard let gifImage = UIImage(data: gifImageData) else { return }
+
+        self.setBackgroundImage(gifImage)
     }
     
     func updateDetailGif(gifData:NSData!) {

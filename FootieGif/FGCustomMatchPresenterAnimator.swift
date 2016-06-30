@@ -16,11 +16,9 @@ class FGCustomMatchPresenterAnimator: NSObject, UIViewControllerAnimatedTransiti
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let finalFrameForVC = transitionContext.finalFrameForViewController(toViewController)
         let containerView = transitionContext.containerView()
-        let bounds = UIScreen.mainScreen().bounds
 
         containerView!.addSubview(toViewController.view)
         toViewController.view.alpha = 0.0;

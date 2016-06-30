@@ -10,10 +10,8 @@ import UIKit
 
 class FGNetworkRequest: NSObject {
 
-    func executeRequest(url: NSURL!, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) -> Void {
+    func executeRequest(request: NSURLRequest!, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) -> Void {
 
-        let url = url
-        let request = NSURLRequest(URL: url)
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         
@@ -33,7 +31,5 @@ class FGNetworkRequest: NSObject {
             
         });
         task.resume()
-
-
     }
 }

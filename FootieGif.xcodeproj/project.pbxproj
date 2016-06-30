@@ -176,7 +176,6 @@
 				1E9320421D20412800825447 /* Model */,
 				1E9320531D20541900825447 /* Scenes */,
 				1E93200E1D1F00A400825447 /* FGNetworkRequest.swift */,
-				1E93204B1D204DCF00825447 /* FGMatchFeedDataProvider.swift */,
 			);
 			path = FootieGif;
 			sourceTree = "<group>";
@@ -251,6 +250,7 @@
 		1E93205D1D21E40700825447 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				1E93204B1D204DCF00825447 /* FGMatchFeedDataProvider.swift */,
 				1E931FAE1D1EC63B00825447 /* FGMatchCollectionViewController.swift */,
 				1E9320491D20464F00825447 /* FGMatchFeedInteractor.swift */,
 				1E9320511D20523C00825447 /* FGMatchFeedPresenter.swift */,

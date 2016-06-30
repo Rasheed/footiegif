@@ -13,7 +13,17 @@ class FGMatchFeedDataProvider: NSObject {
     func fetchFeed(completionHandler: ([FGMatch]) -> Void) -> Void {
         
         let networkRequest = FGNetworkRequest()
-        networkRequest.executeRequest(NSURL.init(string: "http://api.football-data.org/v1/soccerseasons/424/fixtures")) { (responseData, response, error) in
+        
+        guard let url = NSURL.init(string: "http://api.football-data.org/v1/soccerseasons/424/fixtures") else {
+
+            return
+        }
+        
+        let request = NSMutableURLRequest()
+        request.URL = url;
+        request.addValue("ae51e805afec4192bc0b58fdc3afa91e", forHTTPHeaderField: "X-Auth-Token")
+
+        networkRequest.executeRequest(request) { (responseData, response, error) in
             
             if (responseData != nil) {
                 
@@ -33,21 +43,6 @@ class FGMatchFeedDataProvider: NSObject {
                 
             }
         }
-    }
-    
-    func fetchImageForFeedItem(feedItem: FGMatch, completionHandler: (NSData) -> Void) {
-        
-        let networkRequest = FGNetworkRequest()
-        networkRequest.executeRequest(NSURL.init(string:"http://i.giphy.com/xT0GquVx2okVvSekqk.gif")) { (responseData, response, error) in
-            
-            if (responseData != nil) {
-                
-                completionHandler(responseData!)
-            } else if (error != nil) {
-                
-            }
-        }
-
     }
     
 // private methods

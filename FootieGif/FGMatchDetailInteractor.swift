@@ -148,7 +148,11 @@ class FGMatchDetailInteractor: NSObject {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
             let networkRequest = FGNetworkRequest()
-            networkRequest.executeRequest(gif.previewGifURL) { (responseData, response, error) in
+            
+            let request = NSMutableURLRequest()
+            request.URL = gif.previewGifURL;
+
+            networkRequest.executeRequest(request) { (responseData, response, error) in
                 
                 if (responseData != nil) {
                     
@@ -156,7 +160,10 @@ class FGMatchDetailInteractor: NSObject {
                     self.output.updateBackgroundImageData(responseData)
                     
                     let networkRequest = FGNetworkRequest()
-                    networkRequest.executeRequest(gif.gifURL) { (responseData, response, error) in
+                    let request = NSMutableURLRequest()
+                    request.URL = gif.gifURL;
+
+                    networkRequest.executeRequest(request) { (responseData, response, error) in
                         
                         if (self.currentGif.gifURL == gif.gifURL) {
                             

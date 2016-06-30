@@ -45,7 +45,10 @@ class FGMatchFeedInteractor: NSObject {
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             
             let networkRequest = FGNetworkRequest()
-            networkRequest.executeRequest(feedItem.previewGifUrl) { (responseData, response, error) in
+            let request = NSMutableURLRequest()
+            request.URL = feedItem.previewGifUrl;
+            
+            networkRequest.executeRequest(request) { (responseData, response, error) in
                 
                 if (responseData != nil) {
                     dispatch_async(dispatch_get_main_queue()) {
