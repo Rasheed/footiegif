@@ -12,4 +12,5 @@ class FGGif: NSObject {
 
     var previewGifURL: NSURL!
     var gifURL: NSURL!
+    var bestGifData: NSData?
 }
