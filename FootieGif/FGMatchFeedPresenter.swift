@@ -12,13 +12,13 @@ class FGMatchFeedPresenter: NSObject {
 
     weak var output: FGMatchCollectionViewController!
     
-    func presentFeed(feedItems: [FGMatch]) -> Void {
+    func presentFeed(feedItems: [FGManagedMatch]) -> Void {
         
         self.output.dataSource.feedItems = feedItems
         self.output.collectionView?.reloadData()
     }
     
-    func updateFeedItem(feedItem: FGMatch, index: Int) -> Void {
+    func updateFeedItem(feedItem: FGManagedMatch, index: Int) -> Void {
 
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         dispatch_async(dispatch_get_main_queue()) { 

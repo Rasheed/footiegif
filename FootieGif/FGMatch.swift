@@ -52,7 +52,7 @@ class FGMatch: NSObject {
         if (status == "FINISHED") {
             
             let result = self.dictionary["result"] as! [String:AnyObject]
-            goalAwayTeam = result["goalAwayTeam"] as! Int
+            goalAwayTeam = result["goalsAwayTeam"] as! Int
         }
         return goalAwayTeam;
     }

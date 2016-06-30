@@ -11,7 +11,7 @@ import CoreData
 
 class FGDataAccessor: NSObject {
 
-    func saveMatch(match: FGMatch) {
+    func saveMatch(match: FGMatch) -> FGManagedMatch {
         
         let entity =  NSEntityDescription.entityForName("FGManagedMatch", inManagedObjectContext:FGDataStore.sharedInstance.managedObjectContext)
         
@@ -21,5 +21,7 @@ class FGDataAccessor: NSObject {
         matchMO.awayTeamName = match.awayTeamName
         matchMO.goalsAwayTeam = match.goalAwayTeam
         matchMO.goalsHomeTeam = match.goalHomeTeam
+        
+        return matchMO;
     }
 }

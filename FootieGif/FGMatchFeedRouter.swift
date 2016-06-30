@@ -14,7 +14,7 @@ class FGMatchFeedRouter: NSObject, UIViewControllerTransitioningDelegate {
     let customPresentAnimationController = FGCustomMatchPresenterAnimator()
     let customDismissAnimationController = FGCustomMatchDismissAnimator()
     
-    func presentMatchDetail(match: FGMatch) {
+    func presentMatchDetail(match: FGManagedMatch) {
         
         let detailViewController = FGMatchDetailViewController()
         detailViewController.match = match

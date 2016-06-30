@@ -10,7 +10,7 @@ import UIKit
 
 class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    var feedItems = [FGMatch]()
+    var feedItems = [FGManagedMatch]()
     var cache = [NSURL:NSData]()
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -26,7 +26,7 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FGMatchCell", forIndexPath: indexPath) as! FGMatchCell
         
-        let feedItem = feedItems[indexPath.row] as FGMatch
+        let feedItem = feedItems[indexPath.row] as FGManagedMatch
         cell.textLabel.text = feedItem.caption
         cell.textLabel.textColor = UIColor.darkGrayColor()
         cell.imageView.image = nil;
@@ -39,7 +39,7 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         return cell
     }
     
-    func feedItemAtIndexPath(indexPath: NSIndexPath) -> FGMatch {
+    func feedItemAtIndexPath(indexPath: NSIndexPath) -> FGManagedMatch {
         
         return self.feedItems[indexPath.row]
     }

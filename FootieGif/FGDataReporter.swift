@@ -11,14 +11,14 @@ import CoreData
 
 class FGDataReporter: NSObject {
 
-    func allMatches() -> [NSManagedObject] {
+    func allMatches() -> [FGManagedMatch] {
         
-        let fetchRequest = NSFetchRequest(entityName: "Match")
-        var matches: [NSManagedObject] = []
+        let fetchRequest = NSFetchRequest(entityName: "FGManagedMatch")
+        var matches: [FGManagedMatch] = []
         
         do {
             let results = try FGDataStore.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest)
-            matches = results as! [NSManagedObject]
+            matches = results as! [FGManagedMatch]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }

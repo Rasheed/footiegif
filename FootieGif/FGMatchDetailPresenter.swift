@@ -14,10 +14,8 @@ class FGMatchDetailPresenter: NSObject {
 
     func updateImageViewGif(gifData: NSData!) -> Void {
         
-        if (self.output != nil) {
-            
-            self.output.updateDetailGif(gifData)
-        }
+        guard self.output != nil else { return }
+        self.output.updateDetailGif(gifData)
     }
     
     func updateImageView(alpha: CGFloat, title: String) -> Void {
@@ -26,6 +24,8 @@ class FGMatchDetailPresenter: NSObject {
     }
     
     func updateBackgroundImageData(imageData: NSData!) -> Void {
+        
+        guard self.output != nil else { return }
         
         UIView.transitionWithView(self.output.view, duration:0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations:{
             self.output.setBackgroundImage(UIImage(data: imageData!)!);

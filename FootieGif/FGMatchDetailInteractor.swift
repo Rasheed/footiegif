@@ -11,7 +11,7 @@ import UIKit
 class FGMatchDetailInteractor: NSObject {
     
     var output: FGMatchDetailPresenter!
-    var match: FGMatch!
+    var match: FGManagedMatch!
 
     private var gifArray: [FGGif]!
     private var currentGif : FGGif!
@@ -114,7 +114,7 @@ class FGMatchDetailInteractor: NSObject {
                     
                     let gifUrlString = gif!.json["image_url"] as! String
                     let gifURL = NSURL(string: gifUrlString);
-                    let previewGifUrlString = gif!.json["fixed_width_downsampled_url"] as! String
+                    let previewGifUrlString = gif!.json["fixed_width_small_url"] as! String
                     let previewGifUrl = NSURL(string: previewGifUrlString);
                     
                     let gif = FGGif()

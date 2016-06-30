@@ -11,7 +11,7 @@ import Gifu
 
 class FGMatchDetailViewController: UIViewController {
 
-    var match: FGMatch?
+    var match: FGManagedMatch?
     
     @IBOutlet var actionTextLabel: UILabel!
     @IBOutlet var textLabel: UILabel!
@@ -44,6 +44,7 @@ class FGMatchDetailViewController: UIViewController {
         
         guard let gifImageData = self.match?.gifImageData else { return }
         
+        self.updateDetailGif(gifImageData);
         let gif = FGGif()
         gif.previewGifURL = self.match?.previewGifUrl
         gif.gifURL = self.match?.gifImageURL

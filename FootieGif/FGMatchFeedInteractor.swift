@@ -22,31 +22,31 @@ class FGMatchFeedInteractor: NSObject {
         }
     }
         
-    func updateMatchFeedItem(feedItem: FGMatch, index: Int) {
+    func updateMatchFeedItem(feedItem: FGManagedMatch, index: Int) {
         
         if (self.updatedIndexes.contains(index)) {
             return;
         }
         self.updatedIndexes.insert(index)
         
-        if (feedItem.previewGifUrl != nil) {
-            
-            self.updateGifData(feedItem, index: index)
-        } else {
+        if (feedItem.gifImageUrlString.isEmpty) {
             
             self.updateGifUrl(feedItem, index: index)
+
+        } else {
+            
+            self.updateGifData(feedItem, index: index)
         }
-        
     }
     
-    private func updateGifData(feedItem: FGMatch, index: Int) {
+    private func updateGifData(feedItem: FGManagedMatch, index: Int) {
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             
             let networkRequest = FGNetworkRequest()
             let request = NSMutableURLRequest()
-            request.URL = feedItem.previewGifUrl
+            request.URL = NSURL(string: feedItem.gifImageUrlString);
             
             networkRequest.executeRequest(request) { (responseData, response, error) in
                 
@@ -60,7 +60,7 @@ class FGMatchFeedInteractor: NSObject {
         }
     }
     
-    private func updateGifUrl(feedItem: FGMatch, index: Int) {
+    private func updateGifUrl(feedItem: FGManagedMatch, index: Int) {
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
@@ -73,13 +73,13 @@ class FGMatchFeedInteractor: NSObject {
                 if (gif != nil) {
                     
                     let gifUrlString = gif!.json["image_url"] as! String
+                    feedItem.gifImageUrlString = gifUrlString
                     let gifURL = NSURL(string: gifUrlString);
                     feedItem.gifImageURL = gifURL
                     let previewGifUrlString = gif!.json["fixed_width_small_url"] as! String
                     let previewGifUrl = NSURL(string: previewGifUrlString);
                     feedItem.previewGifUrl = previewGifUrl
                     self.updateGifData(feedItem, index: index)
-                    
                 }
                 
             }

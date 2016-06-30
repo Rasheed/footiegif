@@ -10,7 +10,16 @@ import UIKit
 
 class FGMatchFeedDataProvider: NSObject {
 
-    func fetchFeed(completionHandler: ([FGMatch]) -> Void) -> Void {
+    func fetchFeed(completionHandler: ([FGManagedMatch]) -> Void) -> Void {
+        
+        let dataReporter = FGDataReporter()
+        let allMatches = dataReporter.allMatches()
+        
+        if (allMatches.count > 0) {
+            
+            completionHandler(allMatches)
+            return;
+        }
         
         let networkRequest = FGNetworkRequest()
         
@@ -34,7 +43,8 @@ class FGMatchFeedDataProvider: NSObject {
                     
                     let matches = self.matchesFromDictionaryArray(fixturesArray);
 
-                    completionHandler(matches)                    
+                    completionHandler(matches)
+                    return
                 } catch {
                     print("error: \(error)")
                 }
@@ -47,15 +57,30 @@ class FGMatchFeedDataProvider: NSObject {
     
 // private methods
     
-    private func matchesFromDictionaryArray(array: [[String:AnyObject]]) -> [FGMatch] {
+    private func matchesFromDictionaryArray(array: [[String:AnyObject]]) -> [FGManagedMatch] {
         
-        var matches = [FGMatch]()
+        var matches = [FGManagedMatch]()
 
         for matchDictionary in array {
             
             let match = FGMatch.init(dictionary: matchDictionary)
-            matches.append(match)
+            
+            let dataAccessor = FGDataAccessor()
+            let matchMO = dataAccessor.saveMatch(match)
+            
+            matches.append(matchMO)
         }
+        
+        do {
+            try FGDataStore.sharedInstance.managedObjectContext.save()
+            let dataReporter = FGDataReporter()
+            matches = dataReporter.allMatches()
+            return matches
+            
+        } catch let error {
+            print("Could not cache the response \(error)")
+        }
+
         return matches
     }
 

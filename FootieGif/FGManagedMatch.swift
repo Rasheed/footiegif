@@ -17,4 +17,30 @@ class FGManagedMatch: NSManagedObject {
     @NSManaged var awayTeamName : String
     @NSManaged var gifImageUrlString : String
 
+    var gifImageData: NSData?
+    var gifImageURL: NSURL?
+    var previewGifUrl: NSURL?
+    
+    
+    var caption: String {
+        
+        get {
+            
+            return "\(self.homeTeamName) \(self.goalsHomeTeam) - \(self.goalsAwayTeam) \(self.awayTeamName)"
+        }
+    }
+    
+    var winningTeamName: String {
+        
+        get {
+            
+            if self.goalsHomeTeam > self.goalsAwayTeam {
+                return self.homeTeamName
+            } else {
+                return self.awayTeamName
+            }
+        }
+    }
+    
+    
 }
