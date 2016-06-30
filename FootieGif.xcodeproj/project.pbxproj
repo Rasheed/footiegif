@@ -35,7 +35,7 @@
 		1E9320631D21E9E500825447 /* FGDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320621D21E9E500825447 /* FGDataStore.swift */; };
 		1E9320661D232EC700825447 /* FGCustomMatchPresenterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */; };
 		1E9320691D232F1800825447 /* FGCustomMatchDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */; };
-		1EE1C7D21D256B85007688EE /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE1C7D11D256B85007688EE /* Gifu.framework */; };
+		1EE1C7E21D258C8C007688EE /* Gifu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE1C7DF1D258C4B007688EE /* Gifu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1EE1C7E21D258C8C007688EE /* Gifu.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +104,7 @@
 		1E9320621D21E9E500825447 /* FGDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGDataStore.swift; sourceTree = "<group>"; };
 		1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCustomMatchPresenterAnimator.swift; sourceTree = "<group>"; };
 		1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCustomMatchDismissAnimator.swift; sourceTree = "<group>"; };
-		1EE1C7D11D256B85007688EE /* Gifu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gifu.framework; sourceTree = "<group>"; };
+		1EE1C7DF1D258C4B007688EE /* Gifu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gifu.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EE1C7D21D256B85007688EE /* Gifu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +272,7 @@
 		1EE1C7D41D256B99007688EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1EE1C7D11D256B85007688EE /* Gifu.framework */,
+				1EE1C7DF1D258C4B007688EE /* Gifu.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

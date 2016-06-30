@@ -16,14 +16,19 @@ class FGMatchDetailPresenter: NSObject {
         
         if (self.output != nil) {
             
-            self.output.imageView.animateWithImageData(gifData)
+            self.output.updateDetailGif(gifData)
         }
+    }
+    
+    func updateImageView(alpha: CGFloat, title: String) -> Void {
+        
+        self.output.updateImageView(alpha, title: title)
     }
     
     func updateBackgroundImageData(imageData: NSData!) -> Void {
         
-        UIView.transitionWithView(self.output.imageView, duration:0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations:{
-            self.output.backgroundImageView.image = UIImage(data: imageData!);
+        UIView.transitionWithView(self.output.view, duration:0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations:{
+            self.output.setBackgroundImage(UIImage(data: imageData!)!);
         },completion: nil)
     }
     

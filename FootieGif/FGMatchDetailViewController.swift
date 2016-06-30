@@ -15,8 +15,8 @@ class FGMatchDetailViewController: UIViewController {
     
     @IBOutlet var actionTextLabel: UILabel!
     @IBOutlet var textLabel: UILabel!
-    @IBOutlet var imageView: AnimatableImageView!
-    @IBOutlet var backgroundImageView: AnimatableImageView!
+    @IBOutlet private var imageView: AnimatableImageView!
+    @IBOutlet private var backgroundImageView: AnimatableImageView!
     
     var output: FGMatchDetailInteractor!
     var router: FGMatchDetailRouter!
@@ -57,6 +57,16 @@ class FGMatchDetailViewController: UIViewController {
         self.backgroundImageView.image = UIImage(data: gifImageData)
     }
     
+    func updateDetailGif(gifData:NSData!) {
+        
+        self.imageView.animateWithImageData(gifData)
+    }
+    
+    func setBackgroundImage(image: UIImage) {
+        
+        self.backgroundImageView.image = image;
+    }
+    
     func panImageView(sender: UIPanGestureRecognizer) {
         
         let panLocationInView = sender.locationInView(view)
@@ -71,35 +81,9 @@ class FGMatchDetailViewController: UIViewController {
             animator.addBehavior(attachmentBehavior)
         }
         else if sender.state == UIGestureRecognizerState.Changed {
+            
             attachmentBehavior.anchorPoint = panLocationInView
-            
-            self.actionTextLabel.center = self.imageView.center
-            
-            if sender.translationInView(view).y < -200 {
-                
-                self.actionTextLabel.alpha = 1;
-                self.actionTextLabel.text = "Share"
-            } else if sender.translationInView(view).y > 50.0 {
-
-                let alpha = 1.0 - sender.translationInView(view).y / 400.0;
-                self.imageView.alpha = alpha;
-                self.actionTextLabel.text = "Bye"
-                self.actionTextLabel.alpha = 1 - alpha;
-                
-            } else if sender.translationInView(view).x > 100 {
-                
-                self.actionTextLabel.alpha = 1;
-                self.actionTextLabel.text = "Next"
-
-            } else if sender.translationInView(view).x < -100 {
-                
-                self.actionTextLabel.alpha = 1;
-                self.actionTextLabel.text = "Previous"
-            } else {
-                
-                self.actionTextLabel.alpha = 0.0;
-                self.imageView.alpha = 1.0;
-            }
+            self.output.imageViewMoved(sender.translationInView(view))
         }
         else if sender.state == UIGestureRecognizerState.Ended {
             animator.removeAllBehaviors()
@@ -127,6 +111,14 @@ class FGMatchDetailViewController: UIViewController {
         }
     }
     
+    func updateImageView(alpha: CGFloat, title: String) -> Void {
+
+        self.imageView.alpha = alpha;
+        self.actionTextLabel.center = self.imageView.center
+        self.actionTextLabel.text = title
+        self.actionTextLabel.alpha = 1.0
+    }
+    
     func removeImageView() -> Void {
         
         animator.removeAllBehaviors()
@@ -143,7 +135,7 @@ class FGMatchDetailViewController: UIViewController {
             self.self.imageView.alpha = 0.0
             }, completion: {
                 (value: Bool) in
-//                self.imageView.removeFromSuperview()
+
                 self.dismissViewControllerAnimated(true, completion: nil)
         })
     }

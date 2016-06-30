@@ -21,8 +21,8 @@ class FGMatchFeedInteractor: NSObject {
             self.output.presentFeed(matches)
         }
     }
-    
-    func updateMatchFeedItem(feedItem: FGMatch, index: Int) -> Void {
+        
+    func updateMatchFeedItem(feedItem: FGMatch, index: Int) {
         
         if (self.updatedIndexes.contains(index)) {
             return;

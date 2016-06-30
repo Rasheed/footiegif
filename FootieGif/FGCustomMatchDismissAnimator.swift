@@ -26,21 +26,15 @@ class FGCustomMatchDismissAnimator: NSObject, UIViewControllerAnimatedTransition
         containerView!.addSubview(toViewController.view)
         containerView!.sendSubviewToBack(toViewController.view)
         
-        let snapshotView = fromViewController.imageView
-        snapshotView.frame = CGRectMake(100, 100, 300, 250)
-        containerView!.addSubview(snapshotView)
-        
         fromViewController.view.removeFromSuperview()
         
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
             
-            snapshotView.frame = CGRectMake(100, 100, 300, 0)
             toViewController.view.alpha = 1.0
             
             }, completion: {
                 finished in
                 
-                snapshotView.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
     }

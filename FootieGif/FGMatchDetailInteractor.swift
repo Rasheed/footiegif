@@ -22,6 +22,45 @@ class FGMatchDetailInteractor: NSObject {
         super.init()
     }
     
+    
+    func imageViewMoved(point: CGPoint) {
+        
+        var imageViewAlpha: CGFloat = 1.0
+        var imageViewTitle: String;
+        
+        
+        if point.y < -200 {
+            
+            let alpha = 1.0 - point.y / -400;
+            imageViewAlpha = alpha;
+            imageViewTitle = "Share"
+            
+        } else if point.y > 50.0 {
+            
+            let alpha = 1.0 - point.y / 400.0;
+            imageViewAlpha = alpha;
+            imageViewTitle = "Bye"
+        } else if point.x > 100 {
+            
+            let alpha = 1.0 - point.x / 200;
+            imageViewAlpha = alpha;
+            imageViewTitle = "Next"
+            
+        } else if point.x < -100 {
+            
+            let alpha = 1.0 - point.x / -200;
+            imageViewAlpha = alpha;
+            imageViewTitle = "Previous"
+        } else {
+            
+            imageViewTitle = ""
+            imageViewAlpha = 1.0;
+        }
+        
+        self.output.updateImageView(imageViewAlpha, title: imageViewTitle)
+    }
+
+    
     func setCurrentGif(gif: FGGif) -> Void {
         
         self.currentGif = gif

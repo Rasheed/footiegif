@@ -50,12 +50,12 @@
                   moduleName = "FootieGif"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rasheedwihaib/Documents/FootieGif/FootieGif/FGMatchCollectionViewController.swift"
-                  timestampString = "488991673.810438"
+                  timestampString = "489000268.98192"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -65,12 +65,27 @@
                   moduleName = "FootieGif"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rasheedwihaib/Documents/FootieGif/FootieGif/FGMatchCollectionViewController.swift"
-                  timestampString = "488991673.810784"
+                  timestampString = "489000268.982342"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
                   offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FootieGif.FGMatchCollectionViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; FootieGif.FGMatchCollectionViewController"
+                  moduleName = "FootieGif"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rasheedwihaib/Documents/FootieGif/FootieGif/FGMatchCollectionViewController.swift"
+                  timestampString = "489000268.982553"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
