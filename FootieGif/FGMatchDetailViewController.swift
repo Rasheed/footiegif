@@ -87,6 +87,7 @@ class FGMatchDetailViewController: UIViewController {
             self.output.imageViewMoved(sender.translationInView(view))
         }
         else if sender.state == UIGestureRecognizerState.Ended {
+           
             animator.removeAllBehaviors()
             
             snapBehavior = UISnapBehavior(item: self.imageView, snapToPoint: view.center)
@@ -143,15 +144,11 @@ class FGMatchDetailViewController: UIViewController {
     
     override func previewActionItems() -> [UIPreviewActionItem] {
         
-        let likeAction = UIPreviewAction(title: "Share", style: .Default) { (action, viewController) -> Void in
+        let likeAction = UIPreviewAction(title: "Save", style: .Default) { (action, viewController) -> Void in
             print("You liked the photo")
         }
         
-        let deleteAction = UIPreviewAction(title: "Save", style: .Destructive) { (action, viewController) -> Void in
-            print("You deleted the photo")
-        }
-        
-        return [likeAction, deleteAction]
+        return [likeAction]
         
     }
 
