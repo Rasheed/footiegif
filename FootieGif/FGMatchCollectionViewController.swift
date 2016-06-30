@@ -36,7 +36,6 @@ class FGMatchCollectionViewController: UICollectionViewController, UIViewControl
         self.collectionView?.delegate = self;
         self.collectionView!.registerNib(UINib(nibName: "FGMatchCell", bundle: nil), forCellWithReuseIdentifier: "FGMatchCell")
         self.collectionView?.backgroundColor = UIColor.init(white:248/255.0, alpha: 1.0)
-        self.output.fetchFeed()
         
         if( traitCollection.forceTouchCapability == .Available){
             
@@ -45,20 +44,25 @@ class FGMatchCollectionViewController: UICollectionViewController, UIViewControl
         }
     }
     
-    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        
-        self.output.updateMatchFeedItem(self.dataSource.feedItemAtIndexPath(indexPath), index:indexPath.row)
+    override func viewWillAppear(animated: Bool) {
+
+        super.viewWillAppear(animated)
+        self.output.fetchFeed()
     }
     
-    override func collectionView(collectionView: UICollectionView,moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        // move your data order
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        
+        self.output.updateMatchFeedItem(self.dataSource.feedItemAtIndexPath(indexPath), indexPath:indexPath)
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let match = self.dataSource.feedItemAtIndexPath(indexPath)
         
-        self.router.presentMatchDetail(match)
+        if (match.gifImageData != nil) {
+            
+            self.router.presentMatchDetail(match)
+        }
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -81,7 +85,6 @@ class FGMatchCollectionViewController: UICollectionViewController, UIViewControl
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         
         showViewController(viewControllerToCommit, sender: self)
-        
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {

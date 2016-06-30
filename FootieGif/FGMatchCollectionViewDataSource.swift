@@ -11,39 +11,51 @@ import UIKit
 class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     var feedItems = [FGManagedMatch]()
+    var favouriteItems = [FGManagedMatch]()
     var cache = [NSURL:NSData]()
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        
+        if (favouriteItems.isEmpty) {
+            
+            return 1
+        } else {
+            return 2
+        }
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return self.feedItems.count;
+        if (section == 0) {
+            
+            return self.favouriteItems.count;
+        } else {
+            return self.feedItems.count;
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FGMatchCell", forIndexPath: indexPath) as! FGMatchCell
         
-        let feedItem = feedItems[indexPath.row] as FGManagedMatch
+        var feedItem: FGManagedMatch
+        
+        if (indexPath.section == 0) {
+
+            feedItem = self.favouriteItems[indexPath.row] as FGManagedMatch
+        } else {
+            
+            feedItem = self.feedItems[indexPath.row] as FGManagedMatch
+        }
+        
         cell.textLabel.text = feedItem.caption
         cell.textLabel.textColor = UIColor.darkGrayColor()
         cell.imageView.image = nil;
-        
+                
         guard let gifImageData = feedItem.gifImageData else { return cell }
             
         cell.imageView.prepareForAnimation(imageData: gifImageData)
-        
-        if (feedItem.isFavourite) {
-            
-            cell.textLabel.textColor = UIColor.redColor()
-
-        } else {
-            
-            cell.textLabel.textColor = UIColor.whiteColor()
-        }
-
+        cell.textLabel.textColor = UIColor.whiteColor()
         
         return cell
     }

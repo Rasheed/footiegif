@@ -12,34 +12,37 @@ class FGMatchFeedInteractor: NSObject {
     
     var output: FGMatchFeedPresenter!
     let dataProvider = FGMatchFeedDataProvider()
-    var updatedIndexes = Set<Int>()
+    var updatedIndexes = Set<NSIndexPath>()
     
     func fetchFeed() -> Void {
         
         self.dataProvider.fetchFeed{ (matches) in
+                        
+            let favouritePredicate = NSPredicate(format: "isFavourite = true")
+            let favourites = (matches as NSArray).filteredArrayUsingPredicate(favouritePredicate) as! [FGManagedMatch]
             
-            self.output.presentFeed(matches)
+            self.output.presentFeed(favourites, feedItems: matches)
         }
     }
         
-    func updateMatchFeedItem(feedItem: FGManagedMatch, index: Int) {
+    func updateMatchFeedItem(feedItem: FGManagedMatch, indexPath: NSIndexPath) {
         
-        if (self.updatedIndexes.contains(index)) {
+        if (self.updatedIndexes.contains(indexPath)) {
             return;
         }
-        self.updatedIndexes.insert(index)
+        self.updatedIndexes.insert(indexPath)
         
         if (feedItem.previewGifURLString.isEmpty) {
             
-            self.updateGifUrls(feedItem, index: index)
+            self.updateGifUrls(feedItem, indexPath: indexPath)
 
         } else {
             
-            self.updateGifData(feedItem, index: index)
+            self.updateGifData(feedItem, indexPath: indexPath)
         }
     }
     
-    private func updateGifData(feedItem: FGManagedMatch, index: Int) {
+    private func updateGifData(feedItem: FGManagedMatch, indexPath: NSIndexPath) {
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
@@ -53,14 +56,14 @@ class FGMatchFeedInteractor: NSObject {
                 if (responseData != nil) {
                     dispatch_async(dispatch_get_main_queue()) {
                         feedItem.gifImageData = responseData!
-                        self.output.updateFeedItem(feedItem, index: index)
+                        self.output.updateFeedItem(feedItem, indexPath: indexPath)
                     }
                 }
             }
         }
     }
     
-    private func updateGifUrls(feedItem: FGManagedMatch, index: Int) {
+    private func updateGifUrls(feedItem: FGManagedMatch, indexPath: NSIndexPath) {
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
@@ -76,7 +79,7 @@ class FGMatchFeedInteractor: NSObject {
                     let gifUrlString = gif!.json["image_url"] as! String
                     feedItem.gifURLString = gifUrlString
                     
-                    self.updateGifData(feedItem, index: index)
+                    self.updateGifData(feedItem, indexPath: indexPath)
                 }
                 
             }
