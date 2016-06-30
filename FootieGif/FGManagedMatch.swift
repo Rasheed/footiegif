@@ -15,12 +15,10 @@ class FGManagedMatch: NSManagedObject {
     @NSManaged var goalsHomeTeam : Int
     @NSManaged var homeTeamName : String
     @NSManaged var awayTeamName : String
-    @NSManaged var gifImageUrlString : String
+    @NSManaged var gifURLString : String
+    @NSManaged var previewGifURLString : String
 
-    var gifImageData: NSData?
-    var gifImageURL: NSURL?
-    var previewGifUrl: NSURL?
-    
+    var gifImageData: NSData?    
     
     var caption: String {
         

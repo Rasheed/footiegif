@@ -29,7 +29,7 @@ class FGMatchFeedInteractor: NSObject {
         }
         self.updatedIndexes.insert(index)
         
-        if (feedItem.gifImageUrlString.isEmpty) {
+        if (feedItem.previewGifURLString.isEmpty) {
             
             self.updateGifUrl(feedItem, index: index)
 
@@ -46,7 +46,7 @@ class FGMatchFeedInteractor: NSObject {
             
             let networkRequest = FGNetworkRequest()
             let request = NSMutableURLRequest()
-            request.URL = NSURL(string: feedItem.gifImageUrlString);
+            request.URL = NSURL(string: feedItem.gifURLString);
             
             networkRequest.executeRequest(request) { (responseData, response, error) in
                 
@@ -68,17 +68,14 @@ class FGMatchFeedInteractor: NSObject {
             let g = Giphy(apiKey: Giphy.PublicBetaAPIKey)
             
             g.random("\(feedItem.winningTeamName) football", rating: nil) { gif, err in
-                //fixed_width_downsampled_url
                 
                 if (gif != nil) {
                     
+                    let previewGifUrlString = gif!.json["fixed_width_downsampled_url"] as! String
+                    feedItem.previewGifURLString = previewGifUrlString
                     let gifUrlString = gif!.json["image_url"] as! String
-                    feedItem.gifImageUrlString = gifUrlString
-                    let gifURL = NSURL(string: gifUrlString);
-                    feedItem.gifImageURL = gifURL
-                    let previewGifUrlString = gif!.json["fixed_width_small_url"] as! String
-                    let previewGifUrl = NSURL(string: previewGifUrlString);
-                    feedItem.previewGifUrl = previewGifUrl
+                    feedItem.gifURLString = gifUrlString
+                    
                     self.updateGifData(feedItem, index: index)
                 }
                 

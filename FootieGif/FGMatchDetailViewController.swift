@@ -46,8 +46,8 @@ class FGMatchDetailViewController: UIViewController {
         
         self.updateDetailGif(gifImageData);
         let gif = FGGif()
-        gif.previewGifURL = self.match?.previewGifUrl
-        gif.gifURL = self.match?.gifImageURL
+        gif.previewGifURL = NSURL(string:(self.match?.previewGifURLString)!)
+        gif.gifURL = NSURL(string:(self.match?.gifURLString)!)
         
         self.output.setCurrentGif(gif)
         

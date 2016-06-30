@@ -2,12 +2,13 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
     <entity name="FGManagedMatch" representedClassName="FootieGif.FGManagedMatch" syncable="YES">
         <attribute name="awayTeamName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="gifImageUrlString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gifURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="goalsAwayTeam" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="goalsHomeTeam" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="homeTeamName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previewGifURLString" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FGManagedMatch" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="FGManagedMatch" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>
