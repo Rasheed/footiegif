@@ -17,6 +17,7 @@ class FGManagedMatch: NSManagedObject {
     @NSManaged var awayTeamName : String
     @NSManaged var gifURLString : String
     @NSManaged var previewGifURLString : String
+    @NSManaged var isFavourite : Bool
 
     var gifImageData: NSData?    
     

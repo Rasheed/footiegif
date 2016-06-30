@@ -34,7 +34,16 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         guard let gifImageData = feedItem.gifImageData else { return cell }
             
         cell.imageView.prepareForAnimation(imageData: gifImageData)
-        cell.textLabel.textColor = UIColor.whiteColor()
+        
+        if (feedItem.isFavourite) {
+            
+            cell.textLabel.textColor = UIColor.redColor()
+
+        } else {
+            
+            cell.textLabel.textColor = UIColor.whiteColor()
+        }
+
         
         return cell
     }

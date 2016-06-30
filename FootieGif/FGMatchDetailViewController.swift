@@ -143,7 +143,7 @@ class FGMatchDetailViewController: UIViewController {
     override func previewActionItems() -> [UIPreviewActionItem] {
         
         let likeAction = UIPreviewAction(title: "Save", style: .Default) { (action, viewController) -> Void in
-            print("You liked the photo")
+            self.match?.isFavourite = true;
         }
         
         return [likeAction]
