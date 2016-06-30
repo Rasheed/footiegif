@@ -59,7 +59,26 @@ class FGMatchDetailInteractor: NSObject {
         
         self.output.updateImageView(imageViewAlpha, title: imageViewTitle)
     }
+    
+    func swipeUp() {
+        
+        self.shareCurrentGif()
+    }
+    
+    func swipeDown() {
+        
+        self.output.output.removeImageView()
+    }
+    
+    func swipeLeft() {
+        
+        self.previousGif()
+    }
 
+    func swipeRight() {
+        
+        self.nextGif((self.match?.winningTeamName)! + " football")
+    }
     
     func setCurrentGif(gif: FGGif) -> Void {
         
@@ -73,7 +92,7 @@ class FGMatchDetailInteractor: NSObject {
         self.fetchGifData(gif)
     }
     
-    func nextGif(query: String) -> Void {
+    private func nextGif(query: String) -> Void {
         
         let nextGifIndex = self.gifArray.indexOf(self.currentGif)! + 1
         
@@ -110,7 +129,7 @@ class FGMatchDetailInteractor: NSObject {
         }
     }
     
-    func previousGif() -> Void {
+    private func previousGif() -> Void {
         
         let previousGifIndex = self.gifArray.indexOf(self.currentGif)! - 1
         guard previousGifIndex >= 0 else { return }
@@ -118,7 +137,7 @@ class FGMatchDetailInteractor: NSObject {
         self.setCurrentGif(self.gifArray[previousGifIndex])
     }
     
-    func shareCurrentGif() {
+    private func shareCurrentGif() {
         
         let shareItems:Array = [self.currentGif.gifURL]
         self.output.presentShareActivity(shareItems)

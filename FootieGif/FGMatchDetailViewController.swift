@@ -29,6 +29,7 @@ class FGMatchDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configurator.configure(self)
+        self.output.match = match
 
         self.actionTextLabel.alpha = 0.0
         self.textLabel.text =  (self.match?.winningTeamName)! + " Gifs"
@@ -95,18 +96,18 @@ class FGMatchDetailViewController: UIViewController {
             
             if sender.translationInView(view).y < -200 {
                 
-                self.output.shareCurrentGif()
+                self.output.swipeUp()
                 
             } else if sender.translationInView(view).y > 250 {
 
-                self.removeImageView()
+                self.output.swipeDown()
                 
             } else if sender.translationInView(view).x > 100 {
                 
-                self.output.nextGif((self.match?.winningTeamName)! + " football")
+                self.output.swipeRight()
             } else if sender.translationInView(view).x < -100 {
                 
-                self.output.previousGif()
+                self.output.swipeLeft()
             }
         }
     }
