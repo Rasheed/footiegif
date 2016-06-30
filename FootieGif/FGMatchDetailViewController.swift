@@ -78,7 +78,7 @@ class FGMatchDetailViewController: UIViewController {
             if sender.translationInView(view).y < -200 {
                 
                 self.actionTextLabel.alpha = 1;
-                self.actionTextLabel.text = "Share"                
+                self.actionTextLabel.text = "Share"
             } else if sender.translationInView(view).y > 50.0 {
 
                 let alpha = 1.0 - sender.translationInView(view).y / 400.0;
@@ -97,6 +97,7 @@ class FGMatchDetailViewController: UIViewController {
                 self.actionTextLabel.text = "Previous"
             } else {
                 
+                self.actionTextLabel.alpha = 0.0;
                 self.imageView.alpha = 1.0;
             }
         }
