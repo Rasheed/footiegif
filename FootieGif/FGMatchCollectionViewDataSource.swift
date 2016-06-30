@@ -16,7 +16,7 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
-        if (favouriteItems.isEmpty) {
+        if self.favouriteItems.isEmpty {
             
             return 1
         } else {
@@ -25,8 +25,8 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        if (section == 0) {
+        
+        if section == 0 && !self.favouriteItems.isEmpty {
             
             return self.favouriteItems.count;
         } else {
@@ -39,20 +39,22 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FGMatchCell", forIndexPath: indexPath) as! FGMatchCell
         
         var feedItem: FGManagedMatch
-        
-        if (indexPath.section == 0) {
+
+        if indexPath.section == 0 && !self.favouriteItems.isEmpty {
 
             feedItem = self.favouriteItems[indexPath.row] as FGManagedMatch
+            cell.layer.cornerRadius = 5.0
 
         } else {
             
             feedItem = self.feedItems[indexPath.row] as FGManagedMatch
+            cell.layer.cornerRadius = 0.0
         }
         
         cell.textLabel.textColor = UIColor.darkGrayColor()
         cell.textLabel.text = feedItem.caption
         cell.imageView.image = nil;
-                
+        
         guard let gifImageData = feedItem.gifImageData else { return cell }
             
         cell.imageView.prepareForAnimation(imageData: gifImageData)
@@ -63,6 +65,16 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func feedItemAtIndexPath(indexPath: NSIndexPath) -> FGManagedMatch {
         
-        return self.feedItems[indexPath.row]
+        var feedItem: FGManagedMatch
+        
+        if indexPath.section == 0 && !self.favouriteItems.isEmpty {
+            
+            feedItem = self.favouriteItems[indexPath.row]
+
+        } else {
+            
+            feedItem = self.feedItems[indexPath.row]
+        }
+        return feedItem
     }
 }

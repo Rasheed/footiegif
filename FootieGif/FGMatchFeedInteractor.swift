@@ -21,7 +21,10 @@ class FGMatchFeedInteractor: NSObject {
             let favouritePredicate = NSPredicate(format: "isFavourite = true")
             let favourites = (matches as NSArray).filteredArrayUsingPredicate(favouritePredicate) as! [FGManagedMatch]
             
-            self.output.presentFeed(favourites, feedItems: matches)
+            let nonFavouritePredicate = NSPredicate(format: "isFavourite != true")
+            let nonFavourites = (matches as NSArray).filteredArrayUsingPredicate(nonFavouritePredicate) as! [FGManagedMatch]
+            
+            self.output.presentFeed(favourites, feedItems: nonFavourites)
         }
     }
         

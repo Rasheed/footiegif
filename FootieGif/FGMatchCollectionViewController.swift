@@ -71,6 +71,8 @@ class FGMatchCollectionViewController: UICollectionViewController, UIViewControl
         guard let cell = collectionView?.cellForItemAtIndexPath(indexPath) else { return nil }
 
         let feedItem = self.dataSource.feedItemAtIndexPath(indexPath)
+
+        guard feedItem.gifImageData != nil else { return nil }
         
         let viewController = FGMatchDetailViewController()
         
