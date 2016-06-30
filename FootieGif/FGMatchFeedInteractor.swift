@@ -31,7 +31,7 @@ class FGMatchFeedInteractor: NSObject {
         
         if (feedItem.previewGifURLString.isEmpty) {
             
-            self.updateGifUrl(feedItem, index: index)
+            self.updateGifUrls(feedItem, index: index)
 
         } else {
             
@@ -46,7 +46,7 @@ class FGMatchFeedInteractor: NSObject {
             
             let networkRequest = FGNetworkRequest()
             let request = NSMutableURLRequest()
-            request.URL = NSURL(string: feedItem.gifURLString);
+            request.URL = NSURL(string: feedItem.previewGifURLString);
             
             networkRequest.executeRequest(request) { (responseData, response, error) in
                 
@@ -60,7 +60,7 @@ class FGMatchFeedInteractor: NSObject {
         }
     }
     
-    private func updateGifUrl(feedItem: FGManagedMatch, index: Int) {
+    private func updateGifUrls(feedItem: FGManagedMatch, index: Int) {
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
