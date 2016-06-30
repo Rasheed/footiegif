@@ -33,6 +33,32 @@ class FGMatch: NSObject {
         }
     }
     
+    var goalHomeTeam: Int {
+        
+        let status = self.dictionary["status"] as! String
+        var goalsHomeTeam = 0
+        if (status == "FINISHED") {
+            
+            let result = self.dictionary["result"] as! [String:AnyObject]
+            goalsHomeTeam = result["goalsHomeTeam"] as! Int
+        }
+        return goalsHomeTeam;
+    }
+    
+    var goalAwayTeam: Int {
+        
+        let status = self.dictionary["status"] as! String
+        var goalAwayTeam = 0
+        if (status == "FINISHED") {
+            
+            let result = self.dictionary["result"] as! [String:AnyObject]
+            goalAwayTeam = result["goalAwayTeam"] as! Int
+        }
+        return goalAwayTeam;
+    }
+
+    
+    
     var homeTeamName: String {
         
         get {
@@ -74,15 +100,8 @@ class FGMatch: NSObject {
     }
     
     var gifImageData: NSData?
-    
     var gifImageURL: NSURL?
     var previewGifUrl: NSURL?
-
-    var furtherDetailURL: NSURL = NSURL()
-    var homeTeamURL: NSURL = NSURL()
-    var awayTeamURL:NSURL = NSURL()
-    var homeTeamColor = UIColor()
-    var awayTeamColor = UIColor()
     
     private var dictionary: [String:AnyObject]
     

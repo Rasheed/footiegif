@@ -46,7 +46,7 @@ class FGMatchFeedInteractor: NSObject {
             
             let networkRequest = FGNetworkRequest()
             let request = NSMutableURLRequest()
-            request.URL = feedItem.previewGifUrl;
+            request.URL = feedItem.previewGifUrl
             
             networkRequest.executeRequest(request) { (responseData, response, error) in
                 

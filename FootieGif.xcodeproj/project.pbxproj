@@ -36,6 +36,9 @@
 		1E9320661D232EC700825447 /* FGCustomMatchPresenterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */; };
 		1E9320691D232F1800825447 /* FGCustomMatchDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */; };
 		1EE1C7E21D258C8C007688EE /* Gifu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE1C7DF1D258C4B007688EE /* Gifu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1EE1C7E41D2596C9007688EE /* FGDataReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1C7E31D2596C9007688EE /* FGDataReporter.swift */; };
+		1EE1C7E61D25982D007688EE /* FGDataAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1C7E51D25982D007688EE /* FGDataAccessor.swift */; };
+		1EE1C7E81D259AB2007688EE /* FGManagedMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1C7E71D259AB2007688EE /* FGManagedMatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		1E9320651D232EC700825447 /* FGCustomMatchPresenterAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCustomMatchPresenterAnimator.swift; sourceTree = "<group>"; };
 		1E9320681D232F1800825447 /* FGCustomMatchDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGCustomMatchDismissAnimator.swift; sourceTree = "<group>"; };
 		1EE1C7DF1D258C4B007688EE /* Gifu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gifu.framework; sourceTree = "<group>"; };
+		1EE1C7E31D2596C9007688EE /* FGDataReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGDataReporter.swift; sourceTree = "<group>"; };
+		1EE1C7E51D25982D007688EE /* FGDataAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGDataAccessor.swift; sourceTree = "<group>"; };
+		1EE1C7E71D259AB2007688EE /* FGManagedMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGManagedMatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				1E9320621D21E9E500825447 /* FGDataStore.swift */,
+				1EE1C7E31D2596C9007688EE /* FGDataReporter.swift */,
+				1EE1C7E51D25982D007688EE /* FGDataAccessor.swift */,
+				1EE1C7E71D259AB2007688EE /* FGManagedMatch.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -410,6 +419,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EE1C7E41D2596C9007688EE /* FGDataReporter.swift in Sources */,
+				1EE1C7E61D25982D007688EE /* FGDataAccessor.swift in Sources */,
 				1E931FAF1D1EC63B00825447 /* FGMatchCollectionViewController.swift in Sources */,
 				1E93204E1D20512100825447 /* FGMatchFeedConfigurator.swift in Sources */,
 				1E931FDB1D1EE6C000825447 /* FGMatchCell.swift in Sources */,
@@ -429,6 +440,7 @@
 				1E93204A1D20464F00825447 /* FGMatchFeedInteractor.swift in Sources */,
 				1E6C13EF1D24880700E3359E /* FGMatchDetailInteractor.swift in Sources */,
 				1E9320481D20446D00825447 /* FGMatchCollectionViewDataSource.swift in Sources */,
+				1EE1C7E81D259AB2007688EE /* FGManagedMatch.swift in Sources */,
 				1E9320521D20523C00825447 /* FGMatchFeedPresenter.swift in Sources */,
 				1E9320441D20414000825447 /* FGMatch.swift in Sources */,
 				1E6C13F71D248A6700E3359E /* FGGif.swift in Sources */,

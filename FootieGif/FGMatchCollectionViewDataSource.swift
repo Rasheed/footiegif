@@ -31,11 +31,10 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         cell.textLabel.textColor = UIColor.darkGrayColor()
         cell.imageView.image = nil;
         
-        if let gifImageData = feedItem.gifImageData {
+        guard let gifImageData = feedItem.gifImageData else { return cell }
             
-            cell.imageView.prepareForAnimation(imageData: gifImageData)
-            cell.textLabel.textColor = UIColor.whiteColor()
-        }
+        cell.imageView.prepareForAnimation(imageData: gifImageData)
+        cell.textLabel.textColor = UIColor.whiteColor()
         
         return cell
     }
