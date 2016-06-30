@@ -110,19 +110,18 @@ class FGMatchDetailInteractor: NSObject {
                 g.random(query, rating: nil) { gif, err in
                     //fixed_width_downsampled_url
                     
-                    if (gif != nil) {
-                        
-                        let gifUrlString = gif!.json["image_url"] as! String
-                        let gifURL = NSURL(string: gifUrlString);
-                        let previewGifUrlString = gif!.json["fixed_width_downsampled_url"] as! String
-                        let previewGifUrl = NSURL(string: previewGifUrlString);
-                        
-                        let gif = FGGif()
-                        gif.previewGifURL = previewGifUrl
-                        gif.gifURL = gifURL
-                        
-                        self.setCurrentGif(gif)
-                    }
+                    guard gif != nil else { return }
+                    
+                    let gifUrlString = gif!.json["image_url"] as! String
+                    let gifURL = NSURL(string: gifUrlString);
+                    let previewGifUrlString = gif!.json["fixed_width_downsampled_url"] as! String
+                    let previewGifUrl = NSURL(string: previewGifUrlString);
+                    
+                    let gif = FGGif()
+                    gif.previewGifURL = previewGifUrl
+                    gif.gifURL = gifURL
+                    
+                    self.setCurrentGif(gif)
                     
                 }
             }
