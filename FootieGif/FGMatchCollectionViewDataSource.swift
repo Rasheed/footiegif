@@ -43,13 +43,14 @@ class FGMatchCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         if (indexPath.section == 0) {
 
             feedItem = self.favouriteItems[indexPath.row] as FGManagedMatch
+
         } else {
             
             feedItem = self.feedItems[indexPath.row] as FGManagedMatch
         }
         
-        cell.textLabel.text = feedItem.caption
         cell.textLabel.textColor = UIColor.darkGrayColor()
+        cell.textLabel.text = feedItem.caption
         cell.imageView.image = nil;
                 
         guard let gifImageData = feedItem.gifImageData else { return cell }
