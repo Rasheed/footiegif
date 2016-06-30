@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FGMatchDetailViewController" customModule="FootieGif" customModuleProvider="target">
             <connections>
+                <outlet property="actionTextLabel" destination="v9I-Mg-Nu0" id="DGl-PL-ap4"/>
                 <outlet property="backgroundImageView" destination="dpm-Tb-1mE" id="l7V-Ja-Tc5"/>
                 <outlet property="imageView" destination="E3q-A6-xpZ" id="WuJ-MM-5V0"/>
                 <outlet property="textLabel" destination="0YN-th-0NM" id="St9-bg-U4G"/>
@@ -47,15 +48,23 @@
                         <constraint firstAttribute="width" constant="320" id="aoO-Ip-6MF"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9I-Mg-Nu0">
+                    <rect key="frame" x="279" y="289" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gal-MR-8em" firstAttribute="bottom" secondItem="dpm-Tb-1mE" secondAttribute="bottom" id="Ej9-mh-0YE"/>
+                <constraint firstItem="v9I-Mg-Nu0" firstAttribute="centerY" secondItem="E3q-A6-xpZ" secondAttribute="centerY" id="IZM-8e-0UC"/>
                 <constraint firstAttribute="trailing" secondItem="dpm-Tb-1mE" secondAttribute="trailing" id="Kkb-E4-7Ca"/>
                 <constraint firstAttribute="bottom" secondItem="dpm-Tb-1mE" secondAttribute="bottom" id="a2r-og-69Y"/>
                 <constraint firstItem="gal-MR-8em" firstAttribute="leading" secondItem="dpm-Tb-1mE" secondAttribute="leading" id="e4b-LK-wBH"/>
                 <constraint firstItem="dpm-Tb-1mE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gsF-lS-COM"/>
                 <constraint firstItem="gal-MR-8em" firstAttribute="trailing" secondItem="dpm-Tb-1mE" secondAttribute="trailing" id="hzQ-uC-rp7"/>
+                <constraint firstItem="v9I-Mg-Nu0" firstAttribute="centerX" secondItem="E3q-A6-xpZ" secondAttribute="centerX" id="jXH-0t-pD8"/>
                 <constraint firstItem="E3q-A6-xpZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="l0d-p8-5Fq"/>
                 <constraint firstItem="gal-MR-8em" firstAttribute="top" secondItem="dpm-Tb-1mE" secondAttribute="top" id="n02-23-xJr"/>
                 <constraint firstItem="E3q-A6-xpZ" firstAttribute="top" secondItem="0YN-th-0NM" secondAttribute="bottom" constant="61" id="pUq-zI-gXx"/>

@@ -14,7 +14,10 @@ class FGMatchDetailPresenter: NSObject {
 
     func updateImageViewGif(gifData: NSData!) -> Void {
         
-        self.output.imageView.animateWithImageData(gifData)
+        if (self.output != nil) {
+            
+            self.output.imageView.animateWithImageData(gifData)
+        }
     }
     
     func updateBackgroundImageData(imageData: NSData!) -> Void {
